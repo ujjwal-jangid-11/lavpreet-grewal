@@ -49,7 +49,11 @@ const studyMaterial = [
 
           dukki: [],
 
-          rti: [],
+          rti: [{
+              id: 1,
+              title: "Law of Crimes-I, BNS, RTI Answer Sheets",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/bns%20law%20copy%20.pdf",
+            },],
         },
       },
 
@@ -107,7 +111,11 @@ const studyMaterial = [
 
           dukki: [],
 
-          rti: [],
+          rti: [ {
+              id: 1,
+              title: "Principles of Contract RTI Answer Sheets",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/contract%20copy%20law%20.pdf",
+            },],
         },
       },
 
@@ -170,7 +178,11 @@ const studyMaterial = [
 
           dukki: [],
 
-          rti: [],
+          rti: [{
+              id: 1,
+              title: "Family Law 1 RTI Answer Sheets",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/family%20law%20copy%20pdf.pdf",
+            },],
         },
       },
 
@@ -212,7 +224,11 @@ const studyMaterial = [
 
           dukki: [],
 
-          rti: [],
+          rti: [ {
+              id: 1,
+              title: "Jurisprudence-I RTI Answer Sheets",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/jurisprudence%20law%20copy%20pdf.pdf",
+            },],
         },
       },
 
@@ -259,7 +275,11 @@ const studyMaterial = [
 
           dukki: [],
 
-          rti: [],
+          rti: [{
+              id: 1,
+              title: "Law of Torts RTI Answer Sheets",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/torts%20copy.pdf",
+            },],
         },
       },
     ],
