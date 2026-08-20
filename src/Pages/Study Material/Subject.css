@@ -1,0 +1,580 @@
+/* ==========================================
+                SUBJECT PAGE
+========================================== */
+
+.subject-page{
+    width:100%;
+    min-height:100vh;
+    padding:120px 8%;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.subject-container{
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ==========================================
+                BACK BUTTON
+========================================== */
+
+.back-btn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 22px;
+
+    border:1px solid var(--border);
+
+    border-radius:50px;
+
+    background:transparent;
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.back-btn:hover{
+
+    background:var(--text);
+
+    color:var(--bg);
+
+    transform:translateY(-3px);
+
+}
+
+.back-btn svg{
+
+    font-size:1.2rem;
+
+}
+
+/* ==========================================
+                HEADER
+========================================== */
+
+.subject-header{
+
+    max-width:760px;
+
+    margin:60px auto 80px;
+
+    text-align:center;
+
+}
+
+.subject-header h1{
+
+    font-size:4rem;
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
+}
+
+.subject-header p{
+
+    font-size:1.08rem;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+                GRID
+========================================== */
+
+.resource-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+/* ==========================================
+                RESOURCE CARD
+========================================== */
+
+.resource-card{
+
+    position:relative;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:28px;
+
+    padding:38px;
+
+    min-height:280px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.35s ease;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    box-shadow:0 15px 40px var(--shadow);
+
+}
+
+/* Top Line */
+
+.resource-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:0%;
+
+    height:4px;
+
+    background:var(--text);
+
+    transition:.4s;
+
+}
+
+.resource-card:hover::before{
+
+    width:100%;
+
+}
+
+/* Hover */
+
+.resource-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--text);
+
+    box-shadow:0 25px 60px var(--shadow);
+
+}
+
+/* ==========================================
+                TITLE
+========================================== */
+
+.resource-card h2{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:18px;
+
+    transition:.35s;
+
+}
+
+.resource-card:hover h2{
+
+    letter-spacing:.5px;
+
+}
+
+/* ==========================================
+                FILE COUNT
+========================================== */
+
+.file-count{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:fit-content;
+
+    padding:9px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:50px;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+/* ==========================================
+                DESCRIPTION
+========================================== */
+
+.resource-card p{
+
+    color:var(--text-light);
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================================
+                FOOTER
+========================================== */
+
+.resource-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:auto;
+
+}
+
+.resource-footer span{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.resource-footer svg{
+
+    font-size:1.3rem;
+
+    transition:.35s;
+
+}
+
+.resource-card:hover .resource-footer svg{
+
+    transform:translateX(8px);
+
+}
+
+.resource-card:hover .resource-footer span{
+
+    padding-left:4px;
+
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media (max-width:1100px){
+
+    .subject-page{
+
+        padding:110px 6%;
+
+    }
+
+    .subject-header h1{
+
+        font-size:3.2rem;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .subject-page{
+
+        padding:90px 5%;
+
+    }
+
+    .subject-header{
+
+        margin:45px auto 60px;
+
+    }
+
+    .subject-header h1{
+
+        font-size:2.5rem;
+
+    }
+
+    .subject-header p{
+
+        font-size:1rem;
+
+    }
+
+    .resource-grid{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+
+    }
+
+    .resource-card{
+
+        padding:30px;
+
+        min-height:250px;
+
+    }
+
+    .resource-card h2{
+
+        font-size:1.6rem;
+
+    }
+
+    .back-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+        margin-bottom:20px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .subject-page{
+
+        padding:80px 20px;
+
+    }
+
+    .subject-header{
+
+        margin:35px auto 50px;
+
+    }
+
+    .subject-header h1{
+
+        font-size:2rem;
+
+        line-height:1.2;
+
+    }
+
+    .subject-header p{
+
+        font-size:.95rem;
+
+    }
+
+    .resource-card{
+
+        padding:24px;
+
+        min-height:220px;
+
+        border-radius:22px;
+
+    }
+
+    .resource-card h2{
+
+        font-size:1.4rem;
+
+    }
+
+    .resource-card p{
+
+        font-size:.92rem;
+
+        margin-bottom:22px;
+
+    }
+
+}
+
+/* ==========================================
+            EMPTY STATE
+========================================== */
+
+.empty-state{
+
+    padding:80px 30px;
+
+    border:1px dashed var(--border);
+
+    border-radius:28px;
+
+    background:var(--card);
+
+    text-align:center;
+
+}
+
+.empty-state h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+}
+
+.empty-state p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+            FADE ANIMATION
+========================================== */
+
+.resource-card{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    animation:fadeUp .6s ease forwards;
+
+}
+
+.resource-card:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.resource-card:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.resource-card:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.resource-card:nth-child(5){
+
+    animation-delay:.32s;
+
+}
+
+.resource-card:nth-child(6){
+
+    animation-delay:.40s;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+            SMOOTH TRANSITIONS
+========================================== */
+
+.subject-page,
+.subject-header,
+.resource-grid,
+.resource-card,
+.back-btn,
+.resource-footer,
+.resource-footer svg{
+
+    transition:.35s ease;
+
+}
+
+/* ==========================================
+            SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--border);
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--text-light);
+
+}

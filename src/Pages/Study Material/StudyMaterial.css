@@ -1,0 +1,424 @@
+/* =========================================
+   STUDY MATERIAL
+========================================= */
+
+.study-page{
+    width:100%;
+    min-height:100vh;
+    padding:120px 8% 80px;
+}
+
+.study-container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ================= HEADER ================ */
+
+.study-header{
+    text-align:center;
+    margin-bottom:90px;
+}
+
+.study-icon{
+
+    width:85px;
+    height:85px;
+
+    margin:auto;
+
+    border-radius:22px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:38px;
+
+    margin-bottom:28px;
+
+    transition:.35s;
+
+}
+
+.app.light .study-icon{
+
+    background:#000;
+    color:#fff;
+
+}
+
+.app.dark .study-icon{
+
+    background:#fff;
+    color:#111;
+
+}
+
+.study-header h1{
+
+    font-size:4rem;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+
+    letter-spacing:-2px;
+
+}
+
+.study-header p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    line-height:1.9;
+
+    font-size:1.08rem;
+
+    opacity:.78;
+
+}
+
+/* ================= GRID ================ */
+
+.semester-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:35px;
+
+}
+
+/* ================= CARD ================ */
+
+.semester-card{
+
+    border-radius:26px;
+
+    padding:40px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    min-height:360px;
+
+}
+
+.app.light .semester-card{
+
+    background:#fff;
+
+    border:1px solid #d9d9d9;
+
+}
+
+.app.dark .semester-card{
+
+    background:#181818;
+
+    border:1px solid #323232;
+
+}
+
+.semester-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.app.light .semester-card:hover{
+
+    box-shadow:0 25px 60px rgba(0,0,0,.08);
+
+}
+
+.app.dark .semester-card:hover{
+
+    box-shadow:0 25px 60px rgba(255,255,255,.04);
+
+}
+
+/* ================= NUMBER ================ */
+
+.semester-id{
+
+    font-size:4.5rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+    margin-bottom:30px;
+
+}
+
+.app.light .semester-id{
+
+    color:#111;
+
+}
+
+.app.dark .semester-id{
+
+    color:#fff;
+
+}
+
+/* ================= TITLE ================ */
+
+.semester-card h2{
+
+    font-size:2rem;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+.semester-card p{
+
+    opacity:.72;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+   RESOURCE LIST
+=========================== */
+
+.resource-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:40px;
+
+}
+
+.resource-list span{
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.app.light .resource-list span{
+
+    background:#f5f5f5;
+
+    color:#333;
+
+    border:1px solid #e3e3e3;
+
+}
+
+.app.dark .resource-list span{
+
+    background:#222;
+
+    color:#ddd;
+
+    border:1px solid #333;
+
+}
+
+.app.light .resource-list span:hover{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.app.dark .resource-list span:hover{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.semester-card button{
+
+    margin-top:auto;
+
+    width:100%;
+
+    height:58px;
+
+    border-radius:16px;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    transition:.35s;
+
+}
+
+.app.light .semester-card button{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.app.dark .semester-card button{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+.semester-card button svg{
+
+    font-size:22px;
+
+    transition:.35s;
+
+}
+
+.semester-card:hover button svg{
+
+    transform:translateX(8px);
+
+}
+
+/* ===========================
+   CARD BORDER EFFECT
+=========================== */
+
+.semester-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.semester-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:0;
+
+    height:3px;
+
+    transition:.45s;
+
+}
+
+.app.light .semester-card::before{
+
+    background:#111;
+
+}
+
+.app.dark .semester-card::before{
+
+    background:#fff;
+
+}
+
+.semester-card:hover::before{
+
+    width:100%;
+
+}
+
+/* ===========================
+   ICON HOVER
+=========================== */
+
+.study-header:hover .study-icon{
+
+    transform:rotate(-10deg) scale(1.08);
+
+}
+
+/* ===========================
+   CARD CONTENT SPACING
+=========================== */
+
+.semester-card h2{
+
+    letter-spacing:-1px;
+
+}
+
+.semester-card p{
+
+    line-height:1.8;
+
+}
+
+.resource-list{
+
+    min-height:95px;
+
+}
+
+/* ===========================
+   SMOOTH TRANSITIONS
+=========================== */
+
+.study-page *{
+
+    transition:
+    background .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
+
+}

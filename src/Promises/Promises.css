@@ -1,0 +1,542 @@
+/* =====================================================
+                    KEY PROMISES
+===================================================== */
+
+.promises{
+
+    width:100%;
+
+    padding:120px 8%;
+
+}
+
+.app.light .promises{
+
+    background:var(--bg);
+
+}
+
+.app.dark .promises{
+
+    background:var(--bg);
+
+}
+
+/* =====================================================
+                    SECTION HEADER
+===================================================== */
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+}
+
+.section-heading span{
+
+    display:none;
+
+}
+
+.section-heading h2{
+
+    font-size:3.2rem;
+
+    letter-spacing:-2px;
+
+    line-height:1.15;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.section-heading h2 span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:var(--text);
+
+}
+
+/* =====================================================
+                    SUBTITLE
+===================================================== */
+
+.section-subtitle{
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+    text-align-last:center;
+
+    font-size:1.05rem;
+
+    line-height:2;
+
+}
+
+.app.light .section-subtitle{
+
+    color:#5f6368;
+
+}
+
+.app.dark .section-subtitle{
+
+    color:#c5c9d3;
+
+}
+
+/* =====================================================
+                    GRID
+===================================================== */
+
+.promise-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:34px;
+
+    align-items:stretch;
+
+}
+
+/* =====================================================
+                    CARD
+===================================================== */
+
+.promise-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:42px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.app.light .promise-card{
+
+    background:#ffffff;
+
+    border:1px solid #dddddd;
+
+}
+
+.app.dark .promise-card{
+
+    background:#181818;
+
+    border:1px solid #333333;
+
+}
+
+.promise-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.app.light .promise-card:hover{
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+.app.dark .promise-card:hover{
+
+    box-shadow:0 20px 45px rgba(255,255,255,.05);
+
+}
+
+/* Premium top border */
+
+.promise-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:0;
+
+    height:3px;
+
+    transition:.35s;
+
+}
+
+.app.light .promise-card::before{
+
+    background:#111;
+
+}
+
+.app.dark .promise-card::before{
+
+    background:#ffffff;
+
+}
+
+.promise-card:hover::before{
+
+    width:100%;
+
+}
+
+/* =====================================================
+                    ICON
+===================================================== */
+
+.promise-icon{
+
+    width:72px;
+
+    height:72px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    font-size:1.8rem;
+
+    margin-bottom:30px;
+
+    transition:.35s;
+
+}
+
+.app.light .promise-icon{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.app.dark .promise-icon{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+.promise-card:hover .promise-icon{
+
+    transform:rotate(-8deg) scale(1.06);
+
+}
+
+/* =====================================================
+                    TITLE
+===================================================== */
+
+.promise-card h3{
+
+    font-size:1.65rem;
+
+    font-weight:700;
+
+    letter-spacing:-1px;
+
+    line-height:1.3;
+
+    margin-bottom:18px;
+
+    color:var(--text);
+
+}
+
+/* Small divider */
+
+.promise-card h3::after{
+
+    content:"";
+
+    display:block;
+
+    width:58px;
+
+    height:2px;
+
+    border-radius:20px;
+
+    margin-top:16px;
+
+}
+
+.app.light .promise-card h3::after{
+
+    background:#111;
+
+}
+
+.app.dark .promise-card h3::after{
+
+    background:#fff;
+
+}
+
+/* =====================================================
+                    DESCRIPTION
+===================================================== */
+
+.promise-card p{
+
+    flex:1;
+
+    font-size:.98rem;
+
+    line-height:1.95;
+
+    text-align:justify;
+
+    text-justify:inter-word;
+
+    margin-bottom:34px;
+
+}
+
+.app.light .promise-card p{
+
+    color:#5f6368;
+
+}
+
+.app.dark .promise-card p{
+
+    color:#d1d5db;
+
+}
+
+/* =====================================================
+                    BUTTON
+===================================================== */
+
+.promise-card button{
+
+    width:100%;
+
+    height:54px;
+
+    border-radius:14px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:.96rem;
+
+    font-weight:600;
+
+    letter-spacing:.2px;
+
+    margin-top:auto;
+
+    transition:.35s;
+
+}
+
+.app.light .promise-card button{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.app.dark .promise-card button{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+.promise-card button:hover{
+
+    letter-spacing:.6px;
+
+}
+
+.app.light .promise-card button:hover{
+
+    background:#000;
+
+}
+
+.app.dark .promise-card button:hover{
+
+    background:#f2f2f2;
+
+}
+
+/* =====================================================
+                    TABLET
+===================================================== */
+
+@media(max-width:1100px){
+
+    .promise-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .promises{
+
+        padding:90px 20px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:2.4rem;
+
+        letter-spacing:-1px;
+
+    }
+
+    .section-subtitle{
+
+        max-width:100%;
+
+        font-size:.98rem;
+
+        line-height:1.9;
+
+        margin-bottom:55px;
+
+    }
+
+    .promise-container{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+
+    }
+
+    .promise-card{
+
+        width:100%;
+
+        padding:30px;
+
+    }
+
+    .promise-icon{
+
+        width:64px;
+
+        height:64px;
+
+        font-size:1.6rem;
+
+        margin-bottom:24px;
+
+    }
+
+    .promise-card h3{
+
+        font-size:1.45rem;
+
+    }
+
+}
+
+/* =====================================================
+                    SMALL MOBILE
+===================================================== */
+
+@media(max-width:480px){
+
+    .section-heading h2{
+
+        font-size:2rem;
+
+    }
+
+    .section-subtitle{
+
+        font-size:.92rem;
+
+    }
+
+    .promise-card{
+
+        padding:24px;
+
+        border-radius:20px;
+
+    }
+
+    .promise-card h3{
+
+        font-size:1.28rem;
+
+    }
+
+    .promise-card p{
+
+        font-size:.92rem;
+
+        line-height:1.85;
+
+    }
+
+    .promise-card button{
+
+        height:50px;
+
+        font-size:.92rem;
+
+    }
+
+}
+
+/* =====================================================
+                SMOOTH TRANSITIONS
+===================================================== */
+
+.promises *{
+
+    transition:
+    background .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
+
+}

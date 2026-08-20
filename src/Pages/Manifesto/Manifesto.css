@@ -1,0 +1,1166 @@
+/* ==========================================
+                MANIFESTO PAGE
+========================================== */
+
+.manifesto-page{
+
+    width:100%;
+    min-height:100vh;
+
+    padding:120px 8% 80px;
+
+    background:var(--bg);
+    color:var(--text);
+
+    overflow:hidden;
+
+}
+
+.manifesto-page>*{
+
+    max-width:1400px;
+    margin-inline:auto;
+
+}
+
+/* ==========================================
+                HERO SECTION
+========================================== */
+
+.manifesto-hero{
+
+    width:100%;
+    max-width:900px;
+
+    margin:0 auto 90px;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+.manifesto-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    left:50%;
+    top:-120px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.45;
+
+    z-index:0;
+
+}
+
+.app.light .manifesto-hero::before{
+
+    background:rgba(0,0,0,.08);
+
+}
+
+.app.dark .manifesto-hero::before{
+
+    background:rgba(255,255,255,.07);
+
+}
+
+/* ==========================================
+                HERO TAG
+========================================== */
+
+.hero-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    font-size:.82rem;
+    font-weight:600;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    margin-bottom:28px;
+
+    position:relative;
+    z-index:2;
+
+    backdrop-filter:blur(14px);
+
+    transition:.35s;
+
+}
+
+.app.light .hero-tag{
+
+    background:rgba(0,0,0,.05);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    color:#111;
+
+}
+
+.app.dark .hero-tag{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+}
+
+/* ==========================================
+                HERO TITLE
+========================================== */
+
+.manifesto-hero h1{
+
+    font-size:clamp(2.8rem,6vw,4.8rem);
+
+    line-height:1.08;
+
+    font-weight:700;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:28px;
+
+    position:relative;
+    z-index:2;
+
+}
+
+/* ==========================================
+                HERO DESCRIPTION
+========================================== */
+
+.manifesto-hero p{
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+    color:var(--text-light);
+
+    position:relative;
+    z-index:2;
+
+}
+
+/* ==========================================
+            HERO HOVER EFFECT
+========================================== */
+
+.hero-tag:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.manifesto-hero h1,
+.manifesto-hero p,
+.hero-tag{
+
+    transition:all .35s ease;
+
+}
+
+/* ==========================================
+            MANIFESTO GRID
+========================================== */
+
+.manifesto-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-bottom:120px;
+
+}
+
+/* ==========================================
+            MANIFESTO CARD
+========================================== */
+
+.manifesto-card{
+
+    position:relative;
+
+    padding:36px 30px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid transparent;
+
+    cursor:default;
+
+}
+
+.app.light .manifesto-card{
+
+    background:rgba(255,255,255,.82);
+
+    border-color:rgba(0,0,0,.08);
+
+    box-shadow:0 12px 35px rgba(0,0,0,.05);
+
+}
+
+.app.dark .manifesto-card{
+
+    background:rgba(255,255,255,.04);
+
+    border-color:rgba(255,255,255,.08);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+/* ==========================================
+            CARD GLOW
+========================================== */
+
+.manifesto-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    top:-120px;
+    right:-120px;
+
+    filter:blur(70px);
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+.app.light .manifesto-card::before{
+
+    background:rgba(0,0,0,.08);
+
+}
+
+.app.dark .manifesto-card::before{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.manifesto-card:hover::before{
+
+    opacity:1;
+
+}
+
+/* ==========================================
+            CARD HOVER
+========================================== */
+
+.manifesto-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.app.light .manifesto-card:hover{
+
+    box-shadow:0 24px 55px rgba(0,0,0,.12);
+
+    border-color:rgba(0,0,0,.12);
+
+}
+
+.app.dark .manifesto-card:hover{
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+    border-color:rgba(255,255,255,.12);
+
+}
+
+/* ==========================================
+            ICON BOX
+========================================== */
+
+.card-icon{
+
+    width:72px;
+    height:72px;
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:2rem;
+
+    margin-bottom:28px;
+
+    transition:.35s;
+
+}
+
+.app.light .card-icon{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.app.dark .card-icon{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+.manifesto-card:hover .card-icon{
+
+    transform:
+    rotate(-8deg)
+    scale(1.08);
+
+}
+
+/* ==========================================
+            CARD TITLE
+========================================== */
+
+.manifesto-card h3{
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+    color:var(--text);
+
+    line-height:1.35;
+
+}
+
+/* ==========================================
+            CARD DESCRIPTION
+========================================== */
+
+.manifesto-card p{
+
+    color:var(--text-light);
+
+    line-height:1.9;
+
+    font-size:.98rem;
+
+}
+
+/* ==========================================
+            CARD TRANSITIONS
+========================================== */
+
+.manifesto-card *,
+.manifesto-card::before{
+
+    transition:all .35s ease;
+
+}
+
+/* ==========================================
+                VISION SECTION
+========================================== */
+
+.vision-section{
+
+    max-width:950px;
+
+    margin:0 auto;
+
+    padding:70px 60px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    transition:.35s ease;
+
+}
+
+.app.light .vision-section{
+
+    background:rgba(255,255,255,.82);
+
+    border:1px solid rgba(0,0,0,.08);
+
+    box-shadow:0 20px 55px rgba(0,0,0,.06);
+
+}
+
+.app.dark .vision-section{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 55px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+                BACKGROUND GLOW
+========================================== */
+
+.vision-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    left:-140px;
+    top:-120px;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.5;
+
+}
+
+.vision-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    right:-120px;
+    bottom:-120px;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.4;
+
+}
+
+.app.light .vision-section::before,
+.app.light .vision-section::after{
+
+    background:rgba(0,0,0,.06);
+
+}
+
+.app.dark .vision-section::before,
+.app.dark .vision-section::after{
+
+    background:rgba(255,255,255,.06);
+
+}
+
+/* ==========================================
+                TAG
+========================================== */
+
+.vision-section span{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 24px;
+
+    margin-bottom:25px;
+
+    border-radius:50px;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    position:relative;
+    z-index:2;
+
+}
+
+.app.light .vision-section span{
+
+    background:rgba(0,0,0,.06);
+
+    color:#111;
+
+}
+
+.app.dark .vision-section span{
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+}
+
+/* ==========================================
+                TITLE
+========================================== */
+
+.vision-section h2{
+
+    font-size:clamp(2rem,4vw,3.2rem);
+
+    line-height:1.18;
+
+    margin-bottom:25px;
+
+    color:var(--text);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+                DESCRIPTION
+========================================== */
+
+.vision-section p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    font-size:1.05rem;
+
+    line-height:1.95;
+
+    color:var(--text-light);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+            HOVER EFFECT
+========================================== */
+
+.vision-section:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.app.light .vision-section:hover{
+
+    box-shadow:0 28px 65px rgba(0,0,0,.10);
+
+}
+
+.app.dark .vision-section:hover{
+
+    box-shadow:0 28px 65px rgba(0,0,0,.50);
+
+}
+
+/* ==========================================
+            GLOBAL TRANSITIONS
+========================================== */
+
+.manifesto-page *{
+
+    transition:
+    background .35s ease,
+    color .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+
+}
+
+/* ==========================================
+            ACCESSIBILITY
+========================================== */
+
+.manifesto-page *{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+.manifesto-card,
+.vision-section{
+
+    will-change:transform;
+
+}
+
+.manifesto-card h3,
+.manifesto-hero h1,
+.vision-section h2{
+
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
+
+}
+
+.manifesto-card p,
+.manifesto-hero p,
+.vision-section p{
+
+    text-wrap:pretty;
+
+}
+
+/* ==========================================
+                TABLET
+========================================== */
+
+@media (max-width:1100px){
+
+    .manifesto-page{
+
+        padding:110px 6% 70px;
+
+    }
+
+    .manifesto-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:24px;
+
+    }
+
+    .manifesto-hero{
+
+        margin-bottom:70px;
+
+    }
+
+    .vision-section{
+
+        padding:60px 40px;
+
+    }
+
+}
+
+/* ==========================================
+                MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+    .manifesto-page{
+
+        padding:100px 5% 60px;
+
+    }
+
+    .manifesto-hero{
+
+        margin-bottom:55px;
+
+    }
+
+    .hero-tag{
+
+        padding:8px 18px;
+
+        font-size:.72rem;
+
+        letter-spacing:1.5px;
+
+    }
+
+    .manifesto-hero h1{
+
+        font-size:2.3rem;
+
+        line-height:1.18;
+
+    }
+
+    .manifesto-hero p{
+
+        font-size:.96rem;
+
+        line-height:1.8;
+
+    }
+
+    .manifesto-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+        margin-bottom:70px;
+
+    }
+
+    .manifesto-card{
+
+        padding:28px 24px;
+
+        border-radius:20px;
+
+    }
+
+    .card-icon{
+
+        width:60px;
+
+        height:60px;
+
+        font-size:1.7rem;
+
+        border-radius:16px;
+
+        margin-bottom:20px;
+
+    }
+
+    .manifesto-card h3{
+
+        font-size:1.2rem;
+
+    }
+
+    .manifesto-card p{
+
+        font-size:.94rem;
+
+        line-height:1.8;
+
+    }
+
+    .vision-section{
+
+        padding:45px 26px;
+
+        border-radius:22px;
+
+    }
+
+    .vision-section h2{
+
+        font-size:2rem;
+
+        line-height:1.25;
+
+    }
+
+    .vision-section p{
+
+        font-size:.95rem;
+
+        line-height:1.8;
+
+    }
+
+}
+
+/* ==========================================
+            SMALL MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+    .manifesto-page{
+
+        padding:90px 18px 50px;
+
+    }
+
+    .manifesto-hero{
+
+        margin-bottom:45px;
+
+    }
+
+    .manifesto-hero h1{
+
+        font-size:1.95rem;
+
+    }
+
+    .manifesto-hero p{
+
+        font-size:.9rem;
+
+    }
+
+    .manifesto-card{
+
+        padding:24px 20px;
+
+    }
+
+    .card-icon{
+
+        width:55px;
+
+        height:55px;
+
+        font-size:1.55rem;
+
+        border-radius:14px;
+
+    }
+
+    .manifesto-card h3{
+
+        font-size:1.08rem;
+
+        margin-bottom:12px;
+
+    }
+
+    .manifesto-card p{
+
+        font-size:.88rem;
+
+    }
+
+    .vision-section{
+
+        padding:36px 20px;
+
+    }
+
+    .vision-section span{
+
+        font-size:.7rem;
+
+    }
+
+    .vision-section h2{
+
+        font-size:1.65rem;
+
+    }
+
+    .vision-section p{
+
+        font-size:.88rem;
+
+    }
+
+}
+
+/* ==========================================
+            EXTRA POLISH
+========================================== */
+
+.manifesto-card,
+.vision-section{
+
+    overflow:hidden;
+
+}
+
+.manifesto-card svg{
+
+    flex-shrink:0;
+
+}
+
+.manifesto-card:hover{
+
+    z-index:2;
+
+}
+
+.manifesto-card:active{
+
+    transform:scale(.98);
+
+}
+
+.manifesto-card,
+.hero-tag,
+.vision-section{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+::selection{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.app.dark ::selection{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+/* ==========================================
+        PREMIUM MICRO INTERACTIONS
+========================================== */
+
+/* Smooth scrolling */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* Hero reveal */
+
+.manifesto-hero{
+
+    animation:heroFade .9s ease;
+
+}
+
+@keyframes heroFade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Cards */
+
+.manifesto-card{
+
+    animation:cardFade .7s ease both;
+
+}
+
+.manifesto-card:nth-child(2){animation-delay:.08s;}
+.manifesto-card:nth-child(3){animation-delay:.16s;}
+.manifesto-card:nth-child(4){animation-delay:.24s;}
+.manifesto-card:nth-child(5){animation-delay:.32s;}
+.manifesto-card:nth-child(6){animation-delay:.40s;}
+.manifesto-card:nth-child(7){animation-delay:.48s;}
+.manifesto-card:nth-child(8){animation-delay:.56s;}
+.manifesto-card:nth-child(9){animation-delay:.64s;}
+.manifesto-card:nth-child(10){animation-delay:.72s;}
+.manifesto-card:nth-child(11){animation-delay:.80s;}
+.manifesto-card:nth-child(12){animation-delay:.88s;}
+
+@keyframes cardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Icon pulse */
+
+.card-icon{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.card-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    background:linear-gradient(
+        135deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
+
+    transform:translateX(-130%);
+
+}
+
+.manifesto-card:hover .card-icon::after{
+
+    transform:translateX(130%);
+
+    transition:1s;
+
+}
+
+/* Title */
+
+.manifesto-card h3{
+
+    transition:.35s;
+
+}
+
+.app.light .manifesto-card:hover h3{
+
+    color:#000;
+
+}
+
+.app.dark .manifesto-card:hover h3{
+
+    color:#fff;
+
+}
+
+/* Vision */
+
+.vision-section{
+
+    animation:visionFade .9s ease;
+
+}
+
+@keyframes visionFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(45px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Better shadows */
+
+.app.light .manifesto-card:hover{
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.08),
+    0 30px 60px rgba(0,0,0,.08);
+
+}
+
+.app.dark .manifesto-card:hover{
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.45),
+    0 30px 70px rgba(0,0,0,.45);
+
+}
+
+/* Respect reduced motion */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+    }
+
+}
