@@ -674,7 +674,11 @@ const studyMaterial = [
 
           bareacts: [],
 
-          casemat: [],
+          casemat: [{
+              id: 1,
+              title: "Drafting, Pleading & Conveyance Case Material",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/case%20material%20sem%205/Drafting%20case%20material%20-2025.pdf",
+            },],
 
           pyqs: [
             {

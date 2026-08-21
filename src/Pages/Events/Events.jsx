@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Events.css";
 import events from "./EventData";
-
 import {
   HiOutlineCalendarDays,
   HiOutlineMapPin,
@@ -12,14 +11,17 @@ import {
 } from "react-icons/hi2";
 
 function Events() {
+
   // ================= EVENT DATA =================
 
   const upcomingEvent =
     events.find((event) => event.status === "upcoming") || events[0];
 
-  const pastEvents = events
-    .filter((event) => event.status === "completed")
-    .slice(0, 3);
+  // ALL completed events will automatically appear here
+  const pastEvents = events.filter(
+    (event) => event.status === "completed"
+  );
+
 
   // ================= IMAGE LAZY LOADING =================
 
@@ -48,13 +50,17 @@ function Events() {
     return () => observer.disconnect();
   }, []);
 
+
   return (
     <main className="events-page">
 
       {/* ================= HERO ================= */}
 
       <section className="events-hero">
-        <span className="hero-tag">CAMPAIGN JOURNEY</span>
+
+        <span className="hero-tag">
+          CAMPAIGN JOURNEY
+        </span>
 
         <h1>
           Every Step Tells
@@ -67,6 +73,7 @@ function Events() {
           reflects our commitment to creating a better campus for every student.
           Explore the journey through the moments that define our campaign.
         </p>
+
       </section>
 
 
@@ -75,18 +82,24 @@ function Events() {
       <section className="featured-event">
 
         <div className="featured-image">
+
           <img
             src={upcomingEvent.image}
             alt={upcomingEvent.title}
             decoding="async"
           />
+
         </div>
 
         <div className="featured-content">
 
-          <span className="featured-badge">Upcoming Event</span>
+          <span className="featured-badge">
+            Upcoming Event
+          </span>
 
-          <h2>{upcomingEvent.title}</h2>
+          <h2>
+            {upcomingEvent.title}
+          </h2>
 
           <div className="featured-meta">
 
@@ -109,7 +122,9 @@ function Events() {
 
           </div>
 
-          <p>{upcomingEvent.description}</p>
+          <p>
+            {upcomingEvent.description}
+          </p>
 
         </div>
 
@@ -122,22 +137,32 @@ function Events() {
 
         <div className="section-heading">
 
-          <span>Campaign Timeline</span>
+          <span>
+            Campaign Timeline
+          </span>
 
-          <h2>Journey So Far</h2>
+          <h2>
+            Journey So Far
+          </h2>
 
         </div>
-
 
         <div className="journey-grid">
 
           {pastEvents.map((event) => (
 
-            <div className="journey-card" key={event.id}>
+            <div
+              className="journey-card"
+              key={event.id}
+            >
 
-              <h3>{event.title}</h3>
+              <h3>
+                {event.title}
+              </h3>
 
-              <p>{event.date}</p>
+              <p>
+                {event.date}
+              </p>
 
             </div>
 
@@ -154,33 +179,25 @@ function Events() {
 
         <div className="stat-card">
           <HiOutlineUserGroup />
-
           <h3>500+</h3>
-
           <p>Students Reached</p>
         </div>
 
         <div className="stat-card">
           <HiOutlinePresentationChartBar />
-
           <h3>15</h3>
-
           <p>Campaign Activities</p>
         </div>
 
         <div className="stat-card">
           <HiOutlineChatBubbleLeftRight />
-
           <h3>200+</h3>
-
           <p>Suggestions Received</p>
         </div>
 
         <div className="stat-card">
           <HiOutlineClock />
-
-          <h3>5</h3>
-
+          <h3>7</h3>
           <p>Events Conducted</p>
         </div>
 
@@ -189,13 +206,20 @@ function Events() {
 
       {/* ================= EVENTS GALLERY ================= */}
 
-      <section className="events-gallery" ref={galleryRef}>
+      <section
+        className="events-gallery"
+        ref={galleryRef}
+      >
 
         <div className="section-heading">
 
-          <span>Past Events</span>
+          <span>
+            Past Events
+          </span>
 
-          <h2>Moments That Matter</h2>
+          <h2>
+            Moments That Matter
+          </h2>
 
           <p>
             Every campaign activity reflects our dedication to listening,
@@ -204,12 +228,14 @@ function Events() {
 
         </div>
 
-
         <div className="events-grid">
 
           {pastEvents.map((event) => (
 
-            <article className="event-card" key={event.id}>
+            <article
+              className="event-card"
+              key={event.id}
+            >
 
               <div className="event-image">
 
@@ -224,10 +250,11 @@ function Events() {
 
               </div>
 
-
               <div className="event-body">
 
-                <h3>{event.title}</h3>
+                <h3>
+                  {event.title}
+                </h3>
 
                 <div className="event-meta">
 
@@ -243,7 +270,9 @@ function Events() {
 
                 </div>
 
-                <p>{event.description}</p>
+                <p>
+                  {event.description}
+                </p>
 
               </div>
 
@@ -262,12 +291,15 @@ function Events() {
 
         <div className="section-heading">
 
-          <span>Student Voices</span>
+          <span>
+            Student Voices
+          </span>
 
-          <h2>What Students Say</h2>
+          <h2>
+            What Students Say
+          </h2>
 
         </div>
-
 
         <div className="voices-grid">
 
@@ -278,10 +310,11 @@ function Events() {
               Every discussion felt genuine and transparent."
             </p>
 
-            <h4>— Faculty of Law Student</h4>
+            <h4>
+              — Faculty of Law Student
+            </h4>
 
           </div>
-
 
           <div className="voice-card">
 
@@ -290,10 +323,11 @@ function Events() {
               only posters and speeches."
             </p>
 
-            <h4>— Third Year Student</h4>
+            <h4>
+              — Third Year Student
+            </h4>
 
           </div>
-
 
           <div className="voice-card">
 
@@ -302,7 +336,9 @@ function Events() {
               opportunity to express their opinion."
             </p>
 
-            <h4>— First Year Student</h4>
+            <h4>
+              — First Year Student
+            </h4>
 
           </div>
 
@@ -315,7 +351,9 @@ function Events() {
 
       <section className="events-closing">
 
-        <span>OUR COMMITMENT</span>
+        <span>
+          OUR COMMITMENT
+        </span>
 
         <h2>
           Every Conversation Matters.
