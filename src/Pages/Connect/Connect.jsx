@@ -125,7 +125,7 @@ function Connect() {
             </a>
 
             <a
-              href="https://instagram.com/lovepreetgrewal_lc2"
+              href="https://instagram.com/lavpreetgrewal_lc2"
               target="_blank"
               rel="noreferrer"
               className="contact-card"
@@ -134,7 +134,7 @@ function Connect() {
 
               <div>
                 <h4>Instagram</h4>
-                <span>@lovepreetgrewal_lc2</span>
+                <span>@lavpreetgrewal_lc2</span>
               </div>
             </a>
 
