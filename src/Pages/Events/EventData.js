@@ -1,12 +1,12 @@
 const events = [
   {
     id: 1,
-    title: "First Generation Lawyer",
-    date: "23 August 2026, 4:00 PM",
-    location: "Google Meet",
-    image: "/images/main-event.jpeg",
+    title: "Supreme Court Visit",
+    date: "25 August 2026",
+    location: "Supreme Court of India",
+    image: "/images/main-event.webp",
     description:
-      "An insightful session on building a successful legal career from the ground up, featuring experienced advocate Mr. Praveen Suri.",
+      "An educational visit of the second batch of LC-II students to the Supreme Court of India, aimed at providing practical legal exposure and valuable insights into the functioning of the apex court.",
     status: "upcoming",
   },
 
@@ -45,7 +45,7 @@ const events = [
 
    {
     id: 5,
-    title: "Supreme Court Visit",
+    title: "Supreme Court Visit: Batch 1",
     date: "19 August 2026",
     location: "Supreme Court of India",
     image: "/images/img7.webp",
