@@ -19,7 +19,7 @@ const images = [
   {
     id: 3,
     image: "/images/event2.webp",
-    title: "Study Material Donation Drive",
+    title: "Study Material Donation",
     desc: "Supporting students with accessible study resources.",
   },
   {
@@ -30,8 +30,8 @@ const images = [
   },
   {
     id: 5,
-    image: "/images/img5.webp",
-    title: "Beyond The Campus",
+    image: "/images/img7.webp",
+    title: "Supreme Court Visit",
     desc: "Giving students new experiences beyond the campus.",
   },
   {

@@ -228,9 +228,9 @@
 
     position:absolute;
 
-    left:0;
+    left: 12px;
 
-    top:0;
+    top: 0;
 
     width:0;
 
@@ -254,7 +254,7 @@
 
 .value-card:hover::before{
 
-    width:100%;
+    width: calc(100%-24px);
 
 }
 

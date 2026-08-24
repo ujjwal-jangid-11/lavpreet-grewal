@@ -195,8 +195,10 @@
 
   text-decoration: none;
 
-  background: var(--primary);
-  color: #fff;
+  background: var(--text);
+  color: var(--bg);
+
+  border: 1px solid var(--border);
 
   font-weight: 600;
 
@@ -640,15 +642,19 @@
   }
 
   .contact-card {
-    flex-direction: column;
+    flex-direction: row;
 
-    align-items: flex-start;
+    align-items: center;
 
     text-align: left;
   }
 
   .contact-card div {
-    width: 100%;
+    width: auto;
+
+    flex: 1;
+
+    min-width: 0;
   }
 }
 
