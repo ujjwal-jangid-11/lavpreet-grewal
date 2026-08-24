@@ -3,47 +3,33 @@
 ===================================================== */
 
 .campaign-section{
-
     width:100%;
-
     padding:120px 0;
-
     overflow:hidden;
-
 }
 
 .app.light .campaign-section{
-
     background:var(--bg);
-
 }
 
 .app.dark .campaign-section{
-
     background:var(--bg);
-
 }
+
 
 /* =====================================================
                 HEADER
 ===================================================== */
 
 .campaign-heading{
-
     width:min(760px,90%);
-
     margin:0 auto 70px;
-
     text-align:center;
-
 }
 
 .campaign-tag{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
 
     padding:10px 22px;
@@ -51,125 +37,84 @@
     border-radius:50px;
 
     font-size:.82rem;
-
     font-weight:700;
-
     letter-spacing:1px;
 
     margin-bottom:22px;
-
 }
 
 .app.light .campaign-tag{
-
     background:#111;
-
     color:#fff;
-
 }
 
 .app.dark .campaign-tag{
-
     background:#fff;
-
     color:#111;
-
 }
 
 .campaign-heading h2{
-
     font-size:3.2rem;
-
     letter-spacing:-2px;
-
     line-height:1.15;
-
     margin-bottom:20px;
-
     color:var(--text);
-
 }
 
 .campaign-heading h2 span{
-
     display:block;
-
     color:var(--text);
-
 }
 
 .campaign-heading p{
-
     max-width:720px;
-
     margin:auto;
-
     line-height:2;
-
     font-size:1.05rem;
-
 }
 
 .app.light .campaign-heading p{
-
     color:#5f6368;
-
 }
 
 .app.dark .campaign-heading p{
-
     color:#c5c9d3;
-
 }
+
 
 /* =====================================================
                     MARQUEE
 ===================================================== */
 
 .marquee-wrapper{
-
     position:relative;
-
     overflow:hidden;
-
 }
 
 .marquee-track{
-
     display:flex;
-
     align-items:stretch;
-
     gap:28px;
-
     width:max-content;
-
     padding:12px 0;
-
 }
 
 .marquee-track-left{
-
     animation:marqueeLeft 30s linear infinite;
-
 }
 
 .marquee-wrapper:hover .marquee-track{
-
     animation-play-state:paused;
-
 }
+
 
 /* =====================================================
                     CARD
 ===================================================== */
 
 .value-card{
-
     width:320px;
-
     min-height:190px;
-
     flex-shrink:0;
 
     padding:32px;
@@ -177,101 +122,90 @@
     border-radius:24px;
 
     display:flex;
-
     flex-direction:column;
 
     position:relative;
 
     transition:.35s;
 
+    overflow:hidden;
 }
 
 .app.light .value-card{
-
     background:#fff;
-
     border:1px solid #dddddd;
-
 }
 
 .app.dark .value-card{
-
     background:#181818;
-
     border:1px solid #333333;
-
 }
 
 .value-card:hover{
-
     transform:translateY(-8px);
-
 }
 
 .app.light .value-card:hover{
-
     box-shadow:0 20px 45px rgba(0,0,0,.08);
-
 }
 
 .app.dark .value-card:hover{
-
     box-shadow:0 20px 45px rgba(255,255,255,.05);
-
 }
 
-/* Premium Border */
+
+/* =====================================================
+                PREMIUM BORDER
+===================================================== */
 
 .value-card::before{
-
     content:"";
 
     position:absolute;
 
-    left: 12px;
+    top:0;
+    left:0;
+    right:0;
 
-    top: 0;
-
-    width:0;
+    width:auto;
 
     height:3px;
 
-    transition:.35s;
+    border-radius:0;
 
+    transform:scaleX(0);
+    transform-origin:left center;
+
+    transition:transform .35s ease;
+
+    z-index:2;
+
+    pointer-events:none;
 }
 
 .app.light .value-card::before{
-
     background:#111;
-
 }
 
 .app.dark .value-card::before{
-
     background:#fff;
-
 }
 
 .value-card:hover::before{
-
-    width: calc(100%-24px);
-
+    transform:scaleX(1);
 }
+
 
 /* =====================================================
                     ICON
 ===================================================== */
 
 .value-icon{
-
     width:64px;
-
     height:64px;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     border-radius:18px;
@@ -281,108 +215,83 @@
     margin-bottom:26px;
 
     transition:.35s;
-
 }
 
 .app.light .value-icon{
-
     background:#111;
-
     color:#fff;
-
 }
 
 .app.dark .value-icon{
-
     background:#fff;
-
     color:#111;
-
 }
 
 .value-card:hover .value-icon{
-
     transform:rotate(-8deg) scale(1.08);
-
 }
+
 
 /* =====================================================
                     TITLE
 ===================================================== */
 
 .value-card h3{
-
     font-size:1.35rem;
-
     font-weight:700;
 
     letter-spacing:-.6px;
-
     line-height:1.35;
 
     margin-bottom:16px;
 
     color:var(--text);
-
 }
 
 .value-card h3::after{
-
     content:"";
 
     display:block;
 
     width:55px;
-
     height:2px;
 
     border-radius:10px;
 
     margin-top:14px;
-
 }
 
 .app.light .value-card h3::after{
-
     background:#111;
-
 }
 
 .app.dark .value-card h3::after{
-
     background:#fff;
-
 }
+
 
 /* =====================================================
                     DESCRIPTION
 ===================================================== */
 
 .value-card p{
-
     flex:1;
 
     font-size:.95rem;
-
     line-height:1.9;
 
     text-align:justify;
-
     text-justify:inter-word;
-
 }
 
 .app.light .value-card p{
-
     color:#5f6368;
-
 }
 
 .app.dark .value-card p{
-
     color:#d1d5db;
-
 }
+
 
 /* =====================================================
                 EDGE FADE
@@ -390,92 +299,73 @@
 
 .fade-left,
 .fade-right{
-
     position:absolute;
 
     top:0;
 
     width:90px;
-
     height:100%;
 
     z-index:5;
 
     pointer-events:none;
-
 }
 
 .fade-left{
-
     left:0;
-
 }
 
 .fade-right{
-
     right:0;
-
 }
 
 .app.light .fade-left{
-
     background:linear-gradient(
         90deg,
         var(--bg),
         transparent
     );
-
 }
 
 .app.light .fade-right{
-
     background:linear-gradient(
         270deg,
         var(--bg),
         transparent
     );
-
 }
 
 .app.dark .fade-left{
-
     background:linear-gradient(
         90deg,
         var(--bg),
         transparent
     );
-
 }
 
 .app.dark .fade-right{
-
     background:linear-gradient(
         270deg,
         var(--bg),
         transparent
     );
-
 }
+
 
 /* =====================================================
                     ANIMATION
 ===================================================== */
 
 @keyframes marqueeLeft{
-
     from{
-
         transform:translateX(0);
-
     }
 
     to{
-
         transform:translateX(-50%);
-
     }
-
 }
+
 
 /* =====================================================
                     TABLET
@@ -484,26 +374,20 @@
 @media(max-width:1100px){
 
     .campaign-heading h2{
-
         font-size:2.6rem;
-
     }
 
     .marquee-track{
-
         gap:22px;
-
     }
 
     .value-card{
-
         width:290px;
-
         min-height:180px;
-
     }
 
 }
+
 
 /* =====================================================
                     MOBILE
@@ -512,71 +396,48 @@
 @media(max-width:768px){
 
     .campaign-section{
-
         padding:90px 0;
-
     }
 
     .campaign-heading{
-
         width:92%;
-
         margin-bottom:55px;
-
     }
 
     .campaign-heading h2{
-
         font-size:2.2rem;
-
         letter-spacing:-1px;
-
     }
 
     .campaign-heading p{
-
         font-size:.96rem;
-
         line-height:1.9;
-
     }
 
     .marquee-track{
-
         gap:18px;
-
     }
 
     .value-card{
-
         width:260px;
-
         min-height:170px;
-
         padding:24px;
-
     }
 
     .value-icon{
-
         width:56px;
-
         height:56px;
-
         font-size:1.3rem;
-
         margin-bottom:20px;
-
     }
 
     .fade-left,
     .fade-right{
-
         width:55px;
-
     }
 
 }
+
 
 /* =====================================================
                 SMALL MOBILE
@@ -585,68 +446,48 @@
 @media(max-width:480px){
 
     .campaign-heading h2{
-
         font-size:1.9rem;
-
     }
 
     .campaign-heading p{
-
         font-size:.90rem;
-
     }
 
     .value-card{
-
         width:220px;
-
         min-height:160px;
-
         padding:20px;
-
         border-radius:20px;
-
     }
 
     .value-card h3{
-
         font-size:1.12rem;
-
     }
 
     .value-card p{
-
         font-size:.88rem;
-
         line-height:1.8;
-
     }
 
     .value-icon{
-
         width:50px;
-
         height:50px;
-
         font-size:1.15rem;
-
         border-radius:14px;
-
     }
 
 }
+
 
 /* =====================================================
                 SMOOTH TRANSITIONS
 ===================================================== */
 
 .campaign-section *{
-
     transition:
     background .3s ease,
     color .3s ease,
     border-color .3s ease,
     box-shadow .3s ease,
     transform .3s ease;
-
 }
