@@ -19,11 +19,16 @@ const studyMaterial = [
             },
             {
               id: 2,
+              title: "BNS / IPC Notes Handwritten Notes",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/sem%201%20pyq/IPC.pdf",
+            },
+            {
+              id: 3,
               title: "BNS / IPC Cases Summary",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/BNS-case-summary.pdf",
             },
             {
-              id: 3,
+              id: 4,
               title: "BNS / IPC PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/1st%20sem%20pyqs%20analysis_cropped-4.pdf",
             },
@@ -45,15 +50,23 @@ const studyMaterial = [
             },
           ],
 
-          pyqs: [],
+          pyqs: [
+            {
+              id: 1,
+              title: "IPC / BNS PYQs",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/sem%201%20pyq/ipc-bns%20PYQ%20uncropped_cropped.pdf",
+            },
+          ],
 
           dukki: [],
 
-          rti: [{
+          rti: [
+            {
               id: 1,
               title: "Law of Crimes-I, BNS, RTI Answer Sheets",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/bns%20law%20copy%20.pdf",
-            },],
+            },
+          ],
         },
       },
 
@@ -107,15 +120,23 @@ const studyMaterial = [
             },
           ],
 
-          pyqs: [],
+          pyqs: [
+            {
+              id: 1,
+              title: "Principles of Contract PYQs",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/sem%201%20pyq/Contarct%20Law%20PYQ%20uncompressed.pdf",
+            },
+          ],
 
           dukki: [],
 
-          rti: [ {
+          rti: [
+            {
               id: 1,
               title: "Principles of Contract RTI Answer Sheets",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/contract%20copy%20law%20.pdf",
-            },],
+            },
+          ],
         },
       },
 
@@ -174,15 +195,23 @@ const studyMaterial = [
             },
           ],
 
-          pyqs: [],
+          pyqs: [
+            {
+              id: 1,
+              title: "Family Law 1 PYQs",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/sem%201%20pyq/Family%20Law-1%20PYQ%20uncompressed.pdf",
+            },
+          ],
 
           dukki: [],
 
-          rti: [{
+          rti: [
+            {
               id: 1,
               title: "Family Law 1 RTI Answer Sheets",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/family%20law%20copy%20pdf.pdf",
-            },],
+            },
+          ],
         },
       },
 
@@ -220,15 +249,23 @@ const studyMaterial = [
             },
           ],
 
-          pyqs: [],
+          pyqs: [
+            {
+              id: 1,
+              title: "Jurisprudence-I PYQs",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/sem%201%20pyq/Jurisprudence%20PYQ%20uncompressed.pdf",
+            },
+          ],
 
           dukki: [],
 
-          rti: [ {
+          rti: [
+            {
               id: 1,
               title: "Jurisprudence-I RTI Answer Sheets",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/jurisprudence%20law%20copy%20pdf.pdf",
-            },],
+            },
+          ],
         },
       },
 
@@ -275,11 +312,18 @@ const studyMaterial = [
 
           dukki: [],
 
-          rti: [{
+          rti: [
+            {
               id: 1,
-              title: "Law of Torts RTI Answer Sheets",
+              title: "Law of Torts RTI Answer Sheet 1",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20rtis/torts%20copy.pdf",
-            },],
+            },
+            {
+              id: 2,
+              title: "Law of Torts RTI Answer Sheet 2",
+              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/sem%201%20pyq/torts%20rti%20answer%20sheet.pdf",
+            },
+          ],
         },
       },
     ],
@@ -674,11 +718,13 @@ const studyMaterial = [
 
           bareacts: [],
 
-          casemat: [{
+          casemat: [
+            {
               id: 1,
               title: "Drafting, Pleading & Conveyance Case Material",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/case%20material%20sem%205/Drafting%20case%20material%20-2025.pdf",
-            },],
+            },
+          ],
 
           pyqs: [
             {
