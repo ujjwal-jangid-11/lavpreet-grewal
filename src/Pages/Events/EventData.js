@@ -53,6 +53,16 @@ const events = [
       "An educational visit to the Supreme Court of India to gain practical legal insights.",
     status: "completed",
   },
+   {
+    id: 6,
+    title: "Rakshabandhan Celebration",
+    date: "27 August 2026",
+    location: "College Campus",
+    image: "/images/img8.webp",
+    description:
+      "A bond of trust, respect and togetherness that brings us closer, beyond every difference.",
+    status: "completed",
+  },
 ];
 
 export default events;

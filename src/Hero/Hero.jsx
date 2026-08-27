@@ -13,7 +13,6 @@ const images = [
 
 function Hero() {
   const [current, setCurrent] = useState(0);
-
   const [slides, setSlides] = useState([
     {
       src: images[0],
@@ -37,12 +36,10 @@ function Hero() {
     const preloadTimer = setTimeout(() => {
       setSlides((prev) => {
         const updated = [...prev];
-
         updated[nextSlot] = {
           src: images[nextIndex],
           index: nextIndex,
         };
-
         return updated;
       });
     }, 800);
@@ -52,7 +49,6 @@ function Hero() {
     */
     const sliderTimer = setTimeout(() => {
       activeSlot.current = nextSlot;
-
       setCurrent(nextIndex);
     }, 4500);
 
@@ -65,7 +61,6 @@ function Hero() {
   return (
     <section className="hero">
       {/* IMAGE */}
-
       <div className="hero-visual">
         {slides.map((slide, index) => (
           <div
@@ -78,9 +73,7 @@ function Hero() {
               <img
                 src={slide.src}
                 alt={`Campaign moment ${slide.index + 1}`}
-                fetchPriority={
-                  slide.index === 0 ? "high" : "auto"
-                }
+                fetchPriority={slide.index === 0 ? "high" : "auto"}
                 decoding="async"
               />
             )}
@@ -91,15 +84,12 @@ function Hero() {
 
         <div className="hero-counter">
           <strong>{String(current + 1).padStart(2, "0")}</strong>
-
           <span></span>
-
           <small>{String(images.length).padStart(2, "0")}</small>
         </div>
       </div>
 
       {/* CONTENT */}
-
       <div className="hero-content">
         <div className="hero-content-inner">
           <div className="hero-label">
@@ -119,13 +109,12 @@ function Hero() {
           </p>
 
           {/* BUTTONS */}
-
           <div className="hero-actions">
             <button
               type="button"
               onClick={() => navigate("/study-material")}
             >
-              <span>Explore Study Material</span>
+              <span>Study Material</span>
               <strong>↗</strong>
             </button>
 
@@ -134,6 +123,14 @@ function Hero() {
               onClick={() => navigate("/connect")}
             >
               <span>Help & Feedback</span>
+              <strong>↗</strong>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/bulletin")}
+            >
+              <span>Bulletin</span>
               <strong>↗</strong>
             </button>
           </div>

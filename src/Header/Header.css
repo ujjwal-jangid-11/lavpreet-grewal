@@ -3,866 +3,971 @@
 ===================================================== */
 
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-    width: 100%;
-    height: 72px;
+  width: 100%;
+  height: 72px;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    padding: 0 34px;
+  padding: 0 34px;
 
-    background: var(--bg);
-    color: var(--text);
+  background: var(--bg);
+  color: var(--text);
 
-    border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 
-    transition:
-        background .3s ease,
-        color .3s ease,
-        border-color .3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 
-    isolation: isolate;
+  isolation: isolate;
 }
-
 
 /* =====================================================
                         BRAND
 ===================================================== */
 
 .hdr-logo {
-    height: 100%;
+  height: 100%;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 11px;
+  gap: 11px;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    color: var(--text);
+  color: var(--text);
 
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .logo-mark {
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    background: var(--text);
+  background: var(--text);
 
-    transition:
-        transform .3s ease,
-        background .3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
 .logo-img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    display: block;
+  display: block;
 
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .hdr-logo:hover .logo-mark {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .logo-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    justify-content: center;
+  justify-content: center;
 
-    gap: 2px;
+  gap: 2px;
 }
 
 .logo-name {
-    font-size: .92rem;
+  font-size: 0.92rem;
 
-    line-height: 1;
+  line-height: 1;
 
-    font-weight: 750;
+  font-weight: 750;
 
-    letter-spacing: -.25px;
+  letter-spacing: -0.25px;
 
-    color: var(--text);
+  color: var(--text);
 }
 
 .logo-subtitle {
-    font-size: .48rem;
+  font-size: 0.48rem;
 
-    line-height: 1;
+  line-height: 1;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    letter-spacing: 1.8px;
+  letter-spacing: 1.8px;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    color: var(--text-light);
+  color: var(--text-light);
 }
-
 
 /* =====================================================
                     DESKTOP NAVIGATION
 ===================================================== */
 
 .navbar {
-    position: absolute;
+  position: absolute;
 
-    left: 50%;
+  left: 50%;
 
-    transform: translateX(-50%);
+  transform: translateX(-50%);
 
-    height: 100%;
+  height: 100%;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
-    height: 100%;
+  height: 100%;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 5px;
+  gap: 5px;
 }
 
 .nav-links a {
-    position: relative;
+  position: relative;
 
-    height: 100%;
+  height: 100%;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    padding: 0 13px;
+  padding: 0 13px;
 
-    color: var(--text-light);
+  color: var(--text-light);
 
-    text-decoration: none;
+  text-decoration: none;
 
-    font-size: .76rem;
+  font-size: 0.76rem;
 
-    font-weight: 600;
+  font-weight: 600;
 
-    white-space: nowrap;
+  white-space: nowrap;
 
-    transition: color .25s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-links a::after {
-    content: "";
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    left: 13px;
-    right: 13px;
+  left: 13px;
+  right: 13px;
 
-    bottom: 0;
+  bottom: 0;
 
-    height: 2px;
+  height: 2px;
 
-    background: var(--text);
+  background: var(--text);
 
-    transform: scaleX(0);
+  transform: scaleX(0);
 
-    transform-origin: center;
+  transform-origin: center;
 
-    transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--text);
+  color: var(--text);
 }
 
 .nav-links a.active {
-    color: var(--text);
+  color: var(--text);
 }
 
 .nav-links a.active::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
-
 
 /* =====================================================
                 MOBILE NAV ICONS
 ===================================================== */
 
 .mobile-nav-icon {
-    display: none;
+  display: none;
 }
-
 
 /* =====================================================
                     RIGHT SECTION
 ===================================================== */
 
 .right-section {
-    margin-left: auto;
+  margin-left: auto;
 
-    height: 100%;
+  height: 100%;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 14px;
+  gap: 14px;
+
+  flex-shrink: 0;
 }
 
+/* =====================================================
+                    THEME ACTIONS
+===================================================== */
+
+.theme-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
 
 /* =====================================================
                     THEME BUTTON
 ===================================================== */
 
 .theme-btn {
-    width: 36px;
-    height: 36px;
+  width: 36px;
+  height: 36px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border: 1px solid var(--border);
+  border: 1px solid var(--border);
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background: transparent;
+  background: transparent;
 
-    color: var(--text);
+  color: var(--text);
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        background .25s ease,
-        border-color .25s ease,
-        transform .25s ease;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .theme-btn:hover {
-    background: var(--card);
+  background: var(--card);
 
-    transform: rotate(10deg);
+  transform: rotate(10deg);
 }
 
 .theme-icon {
-    font-size: .82rem;
+  font-size: 0.82rem;
 }
 
+/* =====================================================
+                FINGERPRINT BUTTON
+===================================================== */
+
+.fingerprint-btn {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* =====================================================
+                    ADMIN TOOLTIP
+===================================================== */
+
+.fingerprint-btn {
+  position: relative;
+}
+
+.admin-tooltip {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-4px);
+
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  background: var(--text);
+  color: var(--bg);
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  line-height: 1;
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  z-index: 1100;
+}
+
+.admin-tooltip::before {
+  content: "";
+
+  position: absolute;
+
+  top: -4px;
+  left: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--text);
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.fingerprint-btn:hover .admin-tooltip {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.fingerprint-btn:hover {
+  background: var(--card);
+
+  transform: translateY(-1px);
+}
+
+.fingerprint-icon {
+  font-size: 0.82rem;
+}
 
 /* =====================================================
                     DESKTOP SOCIALS
 ===================================================== */
 
 .desktop-socials {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 4px;
+  gap: 4px;
 
-    padding-left: 8px;
+  padding-left: 8px;
 
-    border-left: 1px solid var(--border);
+  border-left: 1px solid var(--border);
 }
 
 .desktop-socials a {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    color: var(--text-light);
+  color: var(--text-light);
 
-    text-decoration: none;
+  text-decoration: none;
 
-    transition:
-        color .25s ease,
-        background .25s ease,
-        transform .25s ease;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .desktop-socials a:hover {
-    color: var(--text);
+  color: var(--text);
 
-    background: var(--card);
+  background: var(--card);
 
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .desktop-socials svg {
-    font-size: .78rem;
+  font-size: 0.78rem;
 }
-
 
 /* =====================================================
                     CONNECT BUTTON
 ===================================================== */
 
 .connect-btn {
-    height: 38px;
+  height: 38px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    gap: 13px;
+  gap: 13px;
 
-    padding: 0 13px 0 17px;
+  padding: 0 13px 0 17px;
 
-    border: none;
+  border: none;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    background: var(--text);
+  background: var(--text);
 
-    color: var(--bg);
+  color: var(--bg);
 
-    font-size: .72rem;
+  font-size: 0.72rem;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    letter-spacing: .15px;
+  letter-spacing: 0.15px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        transform .25s ease,
-        opacity .25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .connect-btn strong {
-    width: 22px;
-    height: 22px;
+  width: 22px;
+  height: 22px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background: rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, 0.12);
 
-    font-size: .82rem;
+  font-size: 0.82rem;
 
-    font-weight: 500;
+  font-weight: 500;
 
-    transition: transform .25s ease;
+  transition: transform 0.25s ease;
 }
 
 .connect-btn:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 
-    opacity: .9;
+  opacity: 0.9;
 }
 
 .connect-btn:hover strong {
-    transform: translate(2px, -2px);
+  transform: translate(2px, -2px);
 }
-
 
 /* =====================================================
                     MOBILE MENU BUTTON
 ===================================================== */
 
 .menu-btn {
-    display: none;
+  display: none;
 
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    border: 1px solid var(--border);
+  border: 1px solid var(--border);
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    background: transparent;
+  background: transparent;
 
-    color: var(--text);
+  color: var(--text);
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition:
-        background .25s ease,
-        transform .25s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .menu-btn:hover {
-    background: var(--card);
+  background: var(--card);
 }
 
 .menu-icon {
-    font-size: .9rem;
+  font-size: 0.9rem;
 }
-
 
 /* =====================================================
                     MOBILE FOOTER
 ===================================================== */
 
 .mobile-footer {
-    display: none;
+  display: none;
 }
-
 
 /* =====================================================
                         TABLET
 ===================================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1250px) {
+  .header {
+    padding: 0 24px;
+  }
 
-    .header {
-        padding: 0 24px;
-    }
+  .nav-links {
+    gap: 0;
+  }
 
-    .nav-links {
-        gap: 0;
-    }
+  .nav-links a {
+    padding: 0 9px;
 
-    .nav-links a {
-        padding: 0 9px;
+    font-size: 0.7rem;
+  }
 
-        font-size: .7rem;
-    }
+  .nav-links a::after {
+    left: 9px;
+    right: 9px;
+  }
 
-    .nav-links a::after {
-        left: 9px;
-        right: 9px;
-    }
-
-    .desktop-socials {
-        display: none;
-    }
-
+  .desktop-socials {
+    display: none;
+  }
 }
-
 
 /* =====================================================
                         MOBILE
 ===================================================== */
 
-@media (max-width: 820px) {
+@media (max-width: 920px) {
+  .header {
+    height: 72px;
 
-    .header {
-        height: 72px;
+    padding: 0 18px;
+  }
 
-        padding: 0 18px;
-    }
+  /* ================= BRAND ================= */
 
+  .logo-mark {
+    width: 36px;
+    height: 36px;
 
-    /* ================= BRAND ================= */
+    border-radius: 9px;
+  }
 
-    .logo-mark {
-        width: 36px;
-        height: 36px;
+  .logo-name {
+    font-size: 0.86rem;
+  }
 
-        border-radius: 9px;
-    }
+  .logo-subtitle {
+    font-size: 0.44rem;
 
-    .logo-name {
-        font-size: .86rem;
-    }
+    letter-spacing: 1.5px;
+  }
 
-    .logo-subtitle {
-        font-size: .44rem;
+  /* ================= RIGHT ================= */
 
-        letter-spacing: 1.5px;
-    }
+  .right-section {
+    gap: 8px;
+  }
 
+  .theme-actions {
+    gap: 6px;
+  }
 
-    /* ================= RIGHT ================= */
+  .theme-btn,
+  .fingerprint-btn {
+    width: 36px;
+    height: 36px;
+  }
 
-    .right-section {
-        gap: 8px;
-    }
+  .desktop-connect {
+    display: none;
+  }
 
-    .theme-btn {
-        width: 36px;
-        height: 36px;
-    }
+  .menu-btn {
+    display: flex;
+  }
 
-    .desktop-connect {
-        display: none;
-    }
-
-    .menu-btn {
-        display: flex;
-    }
-
-
-    /* =================================================
+  /* =================================================
                     MOBILE NAV PANEL
     ================================================= */
 
-    .navbar {
-        position: fixed;
+  .navbar {
+    position: fixed;
 
-        top: 72px;
-        left: 0;
+    top: 72px;
+    left: 0;
 
-        width: 100%;
-        height: calc(100vh - 72px);
+    width: 100%;
+    height: calc(100vh - 72px);
 
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-        justify-content: space-between;
+    justify-content: space-between;
 
-        padding: 24px 20px 22px;
+    padding: 24px 20px 22px;
 
-        background: var(--bg);
+    background: var(--bg);
 
-        border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border);
 
-        transform: translateX(100%);
+    transform: translateX(100%);
 
-        opacity: 0;
+    opacity: 0;
 
-        visibility: hidden;
+    visibility: hidden;
 
-        transition:
-            transform .4s cubic-bezier(.22, 1, .36, 1),
-            opacity .3s ease,
-            visibility .3s ease;
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s ease,
+      visibility 0.3s ease;
 
-        overflow-y: auto;
-    }
+    overflow-y: auto;
+  }
 
-    .navbar.active {
-        transform: translateX(0);
+  .navbar.active {
+    transform: translateX(0);
 
-        opacity: 1;
+    opacity: 1;
 
-        visibility: visible;
-    }
+    visibility: visible;
+  }
 
-
-    /* =================================================
+  /* =================================================
                     MOBILE NAV LINKS
     ================================================= */
 
-    .nav-links {
-        width: 100%;
-        height: auto;
+  .nav-links {
+    width: 100%;
+    height: auto;
 
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-        align-items: stretch;
+    align-items: stretch;
 
-        gap: 0;
-    }
+    gap: 0;
+  }
 
-    .nav-links a {
-        width: 100%;
-        height: 62px;
+  .nav-links a {
+    width: 100%;
+    height: 62px;
 
-        display: flex;
+    display: flex;
 
-        align-items: center;
+    align-items: center;
 
-        justify-content: space-between;
+    justify-content: space-between;
 
-        padding: 0 8px 0 5px;
+    padding: 0 8px 0 5px;
 
-        border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 
-        color: var(--text-light);
+    color: var(--text-light);
 
-        font-size: 1.18rem;
+    font-size: 1.18rem;
 
-        font-weight: 650;
+    font-weight: 650;
 
-        letter-spacing: -.3px;
+    letter-spacing: -0.3px;
 
-        transition:
-            color .25s ease,
-            padding .25s ease;
-    }
+    transition:
+      color 0.25s ease,
+      padding 0.25s ease;
+  }
 
-    .nav-links a::after {
-        display: none;
-    }
+  .nav-links a::after {
+    display: none;
+  }
 
-    .nav-links a:hover {
-        color: var(--text);
+  .nav-links a:hover {
+    color: var(--text);
 
-        padding-left: 9px;
-    }
+    padding-left: 9px;
+  }
 
-    .nav-links a.active {
-        color: var(--text);
-    }
+  .nav-links a.active {
+    color: var(--text);
+  }
 
+  /* ================= NAME ================= */
 
-    /* ================= NAME ================= */
+  .nav-name {
+    display: flex;
 
-    .nav-name {
-        display: flex;
+    align-items: center;
 
-        align-items: center;
+    min-width: 0;
+  }
 
-        min-width: 0;
-    }
+  /* ================= ICON ================= */
 
+  .mobile-nav-icon {
+    width: 34px;
+    height: 34px;
 
-    /* ================= ICON ================= */
+    display: flex;
 
-    .mobile-nav-icon {
-        width: 34px;
-        height: 34px;
+    align-items: center;
+    justify-content: center;
 
-        display: flex;
+    flex-shrink: 0;
 
-        align-items: center;
-        justify-content: center;
+    border: 1px solid var(--border);
 
-        flex-shrink: 0;
+    border-radius: 9px;
 
-        border: 1px solid var(--border);
+    color: var(--text-light);
 
-        border-radius: 9px;
+    background: var(--card);
 
-        color: var(--text-light);
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+  }
 
-        background: var(--card);
+  .mobile-nav-icon svg {
+    font-size: 0.8rem;
+  }
 
-        transition:
-            color .25s ease,
-            background .25s ease,
-            border-color .25s ease,
-            transform .25s ease;
-    }
+  .nav-links a.active .mobile-nav-icon {
+    color: var(--text);
 
-    .mobile-nav-icon svg {
-        font-size: .8rem;
-    }
+    border-color: var(--text);
 
-    .nav-links a.active .mobile-nav-icon {
-        color: var(--text);
+    background: var(--bg);
+  }
 
-        border-color: var(--text);
+  .nav-links a:hover .mobile-nav-icon {
+    color: var(--text);
 
-        background: var(--bg);
-    }
+    transform: translateX(-2px);
+  }
 
-    .nav-links a:hover .mobile-nav-icon {
-        color: var(--text);
-
-        transform: translateX(-2px);
-    }
-
-
-    /* =================================================
+  /* =================================================
                     MOBILE FOOTER
     ================================================= */
 
-    .mobile-footer {
-        width: 100%;
+  .mobile-footer {
+    width: 100%;
 
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-        align-items: center;
+    align-items: center;
 
-        gap: 18px;
+    gap: 18px;
 
-        padding-top: 20px;
-    }
+    padding-top: 20px;
+  }
 
+  /* ================= FOLLOW ================= */
 
-    /* ================= FOLLOW ================= */
+  .mobile-footer-top {
+    width: 100%;
 
-    .mobile-footer-top {
-        width: 100%;
+    display: flex;
+    flex-direction: column;
 
-        display: flex;
-        flex-direction: column;
+    align-items: center;
 
-        align-items: center;
+    justify-content: center;
 
-        justify-content: center;
+    gap: 13px;
+  }
 
-        gap: 13px;
-    }
+  .mobile-follow {
+    display: block;
 
-    .mobile-follow {
-        display: block;
+    text-align: center;
 
-        text-align: center;
+    font-size: 0.56rem;
 
-        font-size: .56rem;
+    font-weight: 700;
 
-        font-weight: 700;
+    letter-spacing: 2.2px;
 
-        letter-spacing: 2.2px;
+    color: var(--text-light);
+  }
 
-        color: var(--text-light);
-    }
+  /* ================= SOCIALS ================= */
 
+  .social-icons {
+    display: flex;
 
-    /* ================= SOCIALS ================= */
+    align-items: center;
+    justify-content: center;
 
-    .social-icons {
-        display: flex;
+    gap: 9px;
 
-        align-items: center;
-        justify-content: center;
+    width: 100%;
+  }
 
-        gap: 9px;
+  .social-icons a {
+    width: 36px;
+    height: 36px;
 
-        width: 100%;
-    }
+    display: flex;
 
-    .social-icons a {
-        width: 36px;
-        height: 36px;
+    align-items: center;
+    justify-content: center;
 
-        display: flex;
+    border: 1px solid var(--border);
 
-        align-items: center;
-        justify-content: center;
+    border-radius: 50%;
 
-        border: 1px solid var(--border);
+    color: var(--text);
 
-        border-radius: 50%;
+    text-decoration: none;
 
-        color: var(--text);
+    background: var(--card);
 
-        text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease;
+  }
 
-        background: var(--card);
+  .social-icons a:hover {
+    transform: translateY(-2px);
 
-        transition:
-            transform .25s ease,
-            background .25s ease;
-    }
+    background: var(--bg);
+  }
 
-    .social-icons a:hover {
-        transform: translateY(-2px);
+  .social-icons svg {
+    font-size: 0.78rem;
+  }
 
-        background: var(--bg);
-    }
-
-    .social-icons svg {
-        font-size: .78rem;
-    }
-
-
-    /* =================================================
+  /* =================================================
                     MOBILE CONNECT
     ================================================= */
 
-    .mobile-connect {
-        width: 100%;
+  .mobile-connect {
+    width: 100%;
 
-        height: 52px;
+    height: 52px;
 
-        justify-content: space-between;
+    justify-content: space-between;
 
-        padding: 0 14px 0 18px;
+    padding: 0 14px 0 18px;
 
-        border-radius: 12px;
+    border-radius: 12px;
 
-        font-size: .8rem;
-    }
+    font-size: 0.8rem;
+  }
 
-    .mobile-connect strong {
-        width: 28px;
-        height: 28px;
+  .mobile-connect strong {
+    width: 28px;
+    height: 28px;
 
-        font-size: .75rem;
-    }
-
+    font-size: 0.75rem;
+  }
 }
-
 
 /* =====================================================
                     SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
+  .header {
+    padding: 0 14px;
+  }
 
-    .header {
-        padding: 0 14px;
-    }
+  .logo-mark {
+    width: 35px;
+    height: 35px;
+  }
 
-    .logo-mark {
-        width: 35px;
-        height: 35px;
-    }
+  .logo-name {
+    font-size: 0.82rem;
+  }
 
-    .logo-name {
-        font-size: .82rem;
-    }
+  .logo-subtitle {
+    font-size: 0.4rem;
+  }
 
-    .logo-subtitle {
-        font-size: .4rem;
-    }
+  .theme-actions {
+    gap: 5px;
+  }
 
-    .navbar {
-        padding: 22px 16px 18px;
-    }
+  .theme-btn,
+  .fingerprint-btn {
+    width: 35px;
+    height: 35px;
+  }
 
-    .nav-links a {
-        height: 58px;
+  .navbar {
+    padding: 22px 16px 18px;
+  }
 
-        font-size: 1.08rem;
+  .nav-links a {
+    height: 58px;
 
-        padding-left: 4px;
-        padding-right: 6px;
-    }
+    font-size: 1.08rem;
 
-    .mobile-nav-icon {
-        width: 32px;
-        height: 32px;
+    padding-left: 4px;
+    padding-right: 6px;
+  }
 
-        border-radius: 8px;
-    }
+  .mobile-nav-icon {
+    width: 32px;
+    height: 32px;
 
-    .mobile-nav-icon svg {
-        font-size: .74rem;
-    }
+    border-radius: 8px;
+  }
 
-    .mobile-footer {
-        gap: 16px;
-    }
+  .mobile-nav-icon svg {
+    font-size: 0.74rem;
+  }
 
-    .mobile-follow {
-        font-size: .52rem;
+  .mobile-footer {
+    gap: 16px;
+  }
 
-        letter-spacing: 2px;
-    }
+  .mobile-follow {
+    font-size: 0.52rem;
 
-    .social-icons {
-        gap: 8px;
-    }
+    letter-spacing: 2px;
+  }
 
-    .social-icons a {
-        width: 34px;
-        height: 34px;
-    }
+  .social-icons {
+    gap: 8px;
+  }
 
-    .mobile-connect {
-        height: 50px;
-    }
+  .social-icons a {
+    width: 34px;
+    height: 34px;
+  }
 
+  .mobile-connect {
+    height: 50px;
+  }
 }

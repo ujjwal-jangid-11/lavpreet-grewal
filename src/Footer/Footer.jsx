@@ -58,6 +58,10 @@ function Footer() {
               <li>
                 <Link to="/connect">Connect</Link>
               </li>
+
+              <li>
+                <Link to="/bulletin">Bulletin</Link>
+              </li>
             </ul>
           </div>
 

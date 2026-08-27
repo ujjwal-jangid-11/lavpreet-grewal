@@ -1,0 +1,1189 @@
+/* =====================================================
+   BULLETIN MANAGER
+   ===================================================== */
+
+.bulletin-manager {
+  --bm-bg: #ffffff;
+  --bm-surface: #fafafa;
+  --bm-surface-hover: #f5f5f5;
+  --bm-input: #ffffff;
+
+  --bm-text: #171717;
+  --bm-text-secondary: #5f5f5f;
+  --bm-text-muted: #8a8a8a;
+
+  --bm-border: #e5e5e5;
+  --bm-border-strong: #d2d2d2;
+
+  --bm-shadow: rgba(0, 0, 0, 0.035);
+  --bm-focus: rgba(0, 0, 0, 0.055);
+
+  min-height: 100vh;
+  padding: 44px 24px 80px;
+
+  background: var(--bm-bg);
+  color: var(--bm-text);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =====================================================
+   DARK THEME
+   ===================================================== */
+
+.app.dark .bulletin-manager {
+  --bm-bg: #151515;
+  --bm-surface: #191919;
+  --bm-surface-hover: #1e1e1e;
+  --bm-input: #1b1b1b;
+
+  --bm-text: #ededed;
+  --bm-text-secondary: #b5b5b5;
+  --bm-text-muted: #858585;
+
+  --bm-border: #2d2d2d;
+  --bm-border-strong: #414141;
+
+  --bm-shadow: rgba(0, 0, 0, 0.12);
+  --bm-focus: rgba(255, 255, 255, 0.055);
+}
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.bulletin-manager-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   TOP BAR
+   ===================================================== */
+
+.bulletin-manager-topbar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.bulletin-manager-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 36px;
+  padding: 0 12px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 7px;
+
+  background: transparent;
+  color: var(--bm-text-secondary);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bulletin-manager-back:hover {
+  background: var(--bm-surface);
+  border-color: var(--bm-border-strong);
+  color: var(--bm-text);
+}
+
+.bulletin-manager-back svg {
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.bulletin-manager-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+
+  padding: 28px 30px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 12px;
+
+  background: var(--bm-surface);
+
+  box-shadow: 0 3px 15px var(--bm-shadow);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.bulletin-manager-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  min-width: 0;
+}
+
+.bulletin-manager-header-icon {
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--bm-border);
+
+  border-radius: 9px;
+
+  background: var(--bm-bg);
+  color: var(--bm-text);
+
+  font-size: 16px;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.bulletin-manager-header-text {
+  min-width: 0;
+}
+
+.bulletin-manager-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.bulletin-manager-header h1 {
+  margin: 0;
+
+  color: var(--bm-text);
+
+  font-size: 29px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.bulletin-manager-header p {
+  max-width: 650px;
+
+  margin: 7px 0 0;
+
+  color: var(--bm-text-secondary);
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =====================================================
+   ADD CONTENT
+   ===================================================== */
+
+.bulletin-manager-add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 40px;
+  padding: 0 15px;
+
+  flex: 0 0 auto;
+
+  border: 1px solid var(--bm-text);
+  border-radius: 7px;
+
+  background: var(--bm-text);
+  color: var(--bm-bg);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bulletin-manager-add-button:hover {
+  background: transparent;
+  color: var(--bm-text);
+}
+
+.bulletin-manager-add-button svg {
+  font-size: 10px;
+}
+
+
+/* =====================================================
+   CREATE / EDIT SECTION
+   ===================================================== */
+
+.bulletin-create-section {
+  margin-top: 20px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 12px;
+
+  background: var(--bm-surface);
+
+  overflow: hidden;
+
+  box-shadow: 0 3px 15px var(--bm-shadow);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* =====================================================
+   CREATE HEADER
+   ===================================================== */
+
+.bulletin-create-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 24px 28px;
+
+  border-bottom: 1px solid var(--bm-border);
+}
+
+.bulletin-create-header > div {
+  min-width: 0;
+}
+
+.bulletin-create-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.bulletin-create-header h2 {
+  margin: 0;
+
+  color: var(--bm-text);
+
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.bulletin-create-header p {
+  margin: 6px 0 0;
+
+  color: var(--bm-text-secondary);
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =====================================================
+   CLOSE
+   ===================================================== */
+
+.bulletin-create-close {
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 7px;
+
+  background: transparent;
+  color: var(--bm-text-secondary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bulletin-create-close:hover {
+  background: var(--bm-surface-hover);
+  border-color: var(--bm-border-strong);
+  color: var(--bm-text);
+}
+
+.bulletin-create-close svg {
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.bulletin-create-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+
+  padding: 28px;
+}
+
+.bulletin-form-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.bulletin-form-field label {
+  margin-bottom: 7px;
+
+  color: var(--bm-text);
+
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.bulletin-form-field small {
+  margin-top: 6px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   COMMON INPUT STYLING
+   ===================================================== */
+
+.bulletin-form-field input,
+.bulletin-form-field textarea,
+.bulletin-form-field select {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 7px;
+
+  background: var(--bm-input);
+  color: var(--bm-text);
+
+  font-family: inherit;
+  font-size: 12px;
+
+  outline: none;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bulletin-form-field input,
+.bulletin-form-field select {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.bulletin-form-field textarea {
+  min-height: 130px;
+  padding: 11px 12px;
+
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.bulletin-form-field input::placeholder,
+.bulletin-form-field textarea::placeholder {
+  color: var(--bm-text-muted);
+  opacity: 1;
+}
+
+
+/* =====================================================
+   FOCUS
+   ===================================================== */
+
+.bulletin-form-field input:focus,
+.bulletin-form-field textarea:focus,
+.bulletin-form-field select:focus {
+  border-color: var(--bm-border-strong);
+
+  box-shadow: 0 0 0 3px var(--bm-focus);
+}
+
+
+/* =====================================================
+   SELECT
+   ===================================================== */
+
+.bulletin-form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding-right: 32px;
+
+  cursor: pointer;
+
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--bm-text-muted) 50%
+    ),
+    linear-gradient(
+      135deg,
+      var(--bm-text-muted) 50%,
+      transparent 50%
+    );
+
+  background-position:
+    calc(100% - 14px) 18px,
+    calc(100% - 9px) 18px;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+}
+
+.bulletin-form-field select option {
+  background: var(--bm-input);
+  color: var(--bm-text);
+}
+
+
+/* =====================================================
+   DATE
+   ===================================================== */
+
+.bulletin-form-field input[type="date"] {
+  cursor: pointer;
+}
+
+.bulletin-form-field input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   FILE UPLOAD
+   ===================================================== */
+
+/*
+   Existing file input is intentionally kept.
+   Only its browser-default button is styled.
+*/
+
+.bulletin-form-field input[type="file"] {
+  height: auto;
+  min-height: 42px;
+
+  padding: 4px;
+
+  cursor: pointer;
+}
+
+.bulletin-form-field input[type="file"]::file-selector-button {
+  height: 32px;
+
+  margin-right: 9px;
+  padding: 0 12px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 6px;
+
+  background: var(--bm-surface-hover);
+  color: var(--bm-text);
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bulletin-form-field input[type="file"]::file-selector-button:hover {
+  background: var(--bm-text);
+  border-color: var(--bm-text);
+  color: var(--bm-bg);
+}
+
+
+/* =====================================================
+   FORM ACTIONS
+   ===================================================== */
+
+.bulletin-form-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+
+  margin-top: 3px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--bm-border);
+}
+
+.bulletin-form-cancel,
+.bulletin-form-save {
+  min-height: 39px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 0 14px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bulletin-form-cancel {
+  border: 1px solid var(--bm-border);
+
+  background: transparent;
+  color: var(--bm-text-secondary);
+}
+
+.bulletin-form-cancel:hover {
+  background: var(--bm-surface-hover);
+  border-color: var(--bm-border-strong);
+  color: var(--bm-text);
+}
+
+.bulletin-form-save {
+  border: 1px solid var(--bm-text);
+
+  background: var(--bm-text);
+  color: var(--bm-bg);
+}
+
+.bulletin-form-save:hover {
+  background: transparent;
+  color: var(--bm-text);
+}
+
+.bulletin-form-cancel:disabled,
+.bulletin-form-save:disabled,
+.bulletin-create-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   CONTENT SECTION
+   ===================================================== */
+
+.bulletin-manager-content {
+  margin-top: 24px;
+
+  padding: 28px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 12px;
+
+  background: var(--bm-surface);
+
+  box-shadow: 0 3px 15px var(--bm-shadow);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* =====================================================
+   SECTION HEADER
+   ===================================================== */
+
+.bulletin-manager-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid var(--bm-border);
+}
+
+.bulletin-manager-section-header > div:first-child {
+  min-width: 0;
+}
+
+.bulletin-manager-section-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.bulletin-manager-section-header h2 {
+  margin: 0;
+
+  color: var(--bm-text);
+
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   TOTAL — 0 ITEMS
+   ===================================================== */
+
+.bulletin-manager-total {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  min-width: 52px;
+  height: 32px;
+  padding: 0 9px;
+
+  box-sizing: border-box;
+
+  flex: 0 0 auto;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 7px;
+
+  background: var(--bm-bg);
+  color: var(--bm-text);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+  text-align: center;
+}
+
+.bulletin-manager-total span {
+  color: var(--bm-text-muted);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+
+/* =====================================================
+   LIST
+   ===================================================== */
+
+.bulletin-manager-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding-top: 18px;
+}
+
+
+/* =====================================================
+   CARD
+   ===================================================== */
+
+.bulletin-manager-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+
+  padding: 18px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 9px;
+
+  background: var(--bm-bg);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bulletin-manager-card:hover {
+  border-color: var(--bm-border-strong);
+}
+
+.bulletin-manager-card-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+
+  min-width: 0;
+  flex: 1;
+}
+
+.bulletin-manager-card-icon {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 7px;
+
+  background: var(--bm-surface);
+  color: var(--bm-text);
+
+  font-size: 12px;
+}
+
+.bulletin-manager-card-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bulletin-manager-card-label {
+  margin-bottom: 4px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.bulletin-manager-card-info h3 {
+  width: 100%;
+
+  margin: 0;
+
+  color: var(--bm-text);
+
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+.bulletin-manager-card-info strong {
+  margin-top: 3px;
+
+  color: var(--bm-text-secondary);
+
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 650;
+}
+
+.bulletin-manager-card-info > span:not(
+  .bulletin-manager-card-label
+) {
+  margin-top: 2px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.bulletin-manager-card-info p {
+  max-width: 760px;
+
+  margin: 6px 0 0;
+
+  color: var(--bm-text-secondary);
+
+  font-size: 11px;
+  line-height: 1.55;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   CARD ACTIONS
+   ===================================================== */
+
+.bulletin-manager-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  flex: 0 0 auto;
+}
+
+.bulletin-manager-edit-button,
+.bulletin-manager-delete-button {
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 0 10px;
+
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.bulletin-manager-edit-button {
+  border: 1px solid var(--bm-border);
+
+  background: var(--bm-surface);
+  color: var(--bm-text-secondary);
+}
+
+.bulletin-manager-edit-button:hover {
+  border-color: var(--bm-text);
+  background: var(--bm-text);
+  color: var(--bm-bg);
+}
+
+.bulletin-manager-delete-button {
+  border: 1px solid var(--bm-border);
+
+  background: transparent;
+  color: var(--bm-text-secondary);
+}
+
+.bulletin-manager-delete-button:hover {
+  border-color: var(--bm-text);
+  background: var(--bm-text);
+  color: var(--bm-bg);
+}
+
+
+/* =====================================================
+   EMPTY / LOADING STATE
+   ===================================================== */
+
+.bulletin-manager-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 58px 20px 40px;
+
+  text-align: center;
+}
+
+.bulletin-manager-state-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border: 1px solid var(--bm-border);
+  border-radius: 9px;
+
+  background: var(--bm-bg);
+  color: var(--bm-text-secondary);
+
+  font-size: 14px;
+}
+
+.bulletin-manager-state h3 {
+  margin: 0;
+
+  color: var(--bm-text);
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.bulletin-manager-state p {
+  max-width: 400px;
+
+  margin: 6px 0 18px;
+
+  color: var(--bm-text-muted);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* =====================================================
+   RESPONSIVE 1 — TABLET
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .bulletin-manager {
+    padding: 34px 20px 60px;
+  }
+
+  .bulletin-manager-header {
+    padding: 25px;
+  }
+
+  .bulletin-manager-header-left {
+    align-items: flex-start;
+  }
+
+  .bulletin-create-form {
+    grid-template-columns: 1fr;
+  }
+
+  .bulletin-form-actions {
+    grid-column: auto;
+  }
+
+  .bulletin-manager-content {
+    padding: 25px;
+  }
+
+  .bulletin-manager-card {
+    align-items: flex-start;
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE 2 — MOBILE
+   ===================================================== */
+
+@media (max-width: 640px) {
+  .bulletin-manager {
+    padding: 24px 14px 50px;
+  }
+
+  .bulletin-manager-topbar {
+    margin-bottom: 18px;
+  }
+
+  .bulletin-manager-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+
+    padding: 21px 19px;
+  }
+
+  .bulletin-manager-header-left {
+    width: 100%;
+  }
+
+  .bulletin-manager-header-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .bulletin-manager-header h1 {
+    font-size: 23px;
+  }
+
+  .bulletin-manager-header p {
+    font-size: 11px;
+  }
+
+  .bulletin-manager-add-button {
+    width: 100%;
+  }
+
+  .bulletin-create-header {
+    padding: 20px;
+  }
+
+  .bulletin-create-form {
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .bulletin-manager-content {
+    margin-top: 18px;
+    padding: 20px;
+  }
+
+  .bulletin-manager-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .bulletin-manager-card-actions {
+    width: 100%;
+  }
+
+  .bulletin-manager-edit-button,
+  .bulletin-manager-delete-button {
+    flex: 1;
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE 3 — SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 420px) {
+  .bulletin-manager {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .bulletin-manager-header {
+    padding: 18px 16px;
+  }
+
+  .bulletin-manager-header-left {
+    gap: 11px;
+  }
+
+  .bulletin-manager-header-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .bulletin-manager-header h1 {
+    font-size: 21px;
+  }
+
+  .bulletin-create-header {
+    padding: 17px;
+  }
+
+  .bulletin-create-form {
+    padding: 17px;
+  }
+
+  .bulletin-manager-content {
+    padding: 17px;
+  }
+
+  .bulletin-manager-section-header {
+    align-items: center;
+  }
+
+  .bulletin-manager-section-header h2 {
+    font-size: 16px;
+  }
+
+  .bulletin-manager-total {
+    min-width: 45px;
+    padding: 0 7px;
+  }
+
+  .bulletin-manager-card-main {
+    gap: 10px;
+  }
+
+  .bulletin-manager-card-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .bulletin-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .bulletin-form-cancel,
+  .bulletin-form-save {
+    width: 100%;
+  }
+}

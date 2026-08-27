@@ -179,25 +179,25 @@ function Events() {
 
         <div className="stat-card">
           <HiOutlineUserGroup />
-          <h3>500+</h3>
+          <h3>600+</h3>
           <p>Students Reached</p>
         </div>
 
         <div className="stat-card">
           <HiOutlinePresentationChartBar />
-          <h3>15</h3>
+          <h3>17</h3>
           <p>Campaign Activities</p>
         </div>
 
         <div className="stat-card">
           <HiOutlineChatBubbleLeftRight />
-          <h3>200+</h3>
+          <h3>250+</h3>
           <p>Suggestions Received</p>
         </div>
 
         <div className="stat-card">
           <HiOutlineClock />
-          <h3>7</h3>
+          <h3>11</h3>
           <p>Events Conducted</p>
         </div>
 

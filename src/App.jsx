@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Loader from "./Loader/Loader";
 import PageTransition from "./PageTransition";
+import AdminRoute from "./AdminLogin/AdminRoute";
 
 import "./App.css";
 
@@ -32,13 +33,40 @@ const Resource = lazy(
   () => import("./Pages/Study Material/Resource")
 );
 
+const Bulletin = lazy(
+  () => import("./Pages/Bulletin/Bulletin")
+);
+
+/* =====================================================
+                    ADMIN PANEL
+===================================================== */
+
+const AdminPanel = lazy(
+  () => import("./Pages/Admin/AdminPanel")
+);
+
+const BulletinManager = lazy(
+  () => import("./Pages/Admin/BulletinManager")
+);
+
+/* =====================================================
+                    PUBLIC INTERNSHIP
+===================================================== */
+
+const Internship = lazy(
+  () => import("./Pages/Bulletin/Internship/Internship")
+);
+
 const App = () => {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
 
   useEffect(() => {
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    localStorage.setItem(
+      "theme",
+      darkMode ? "dark" : "light"
+    );
   }, [darkMode]);
 
   function toggleTheme() {
@@ -49,7 +77,13 @@ const App = () => {
     <BrowserRouter>
       <ScrollToTop />
 
-      <div className={darkMode ? "app dark" : "app light"}>
+      <div
+        className={
+          darkMode
+            ? "app dark"
+            : "app light"
+        }
+      >
         <Header
           darkMode={darkMode}
           toggleTheme={toggleTheme}
@@ -57,6 +91,11 @@ const App = () => {
 
         <Suspense fallback={<Loader />}>
           <Routes>
+
+            {/* =================================================
+                                HOME
+            ================================================= */}
+
             <Route
               path="/"
               element={
@@ -65,6 +104,10 @@ const App = () => {
                 </PageTransition>
               }
             />
+
+            {/* =================================================
+                                ABOUT
+            ================================================= */}
 
             <Route
               path="/about"
@@ -75,29 +118,15 @@ const App = () => {
               }
             />
 
+            {/* =================================================
+                            STUDY MATERIAL
+            ================================================= */}
+
             <Route
               path="/study-material"
               element={
                 <PageTransition>
                   <StudyMaterial />
-                </PageTransition>
-              }
-            />
-
-            <Route
-              path="/manifesto"
-              element={
-                <PageTransition>
-                  <Manifesto />
-                </PageTransition>
-              }
-            />
-
-            <Route
-              path="/events"
-              element={
-                <PageTransition>
-                  <Events />
                 </PageTransition>
               }
             />
@@ -129,6 +158,62 @@ const App = () => {
               }
             />
 
+            {/* =================================================
+                              BULLETIN
+            ================================================= */}
+
+            <Route
+              path="/bulletin"
+              element={
+                <PageTransition>
+                  <Bulletin />
+                </PageTransition>
+              }
+            />
+
+            {/* =================================================
+                        PUBLIC INTERNSHIP
+            ================================================= */}
+
+            <Route
+              path="/bulletin/internship"
+              element={
+                <PageTransition>
+                  <Internship />
+                </PageTransition>
+              }
+            />
+
+            {/* =================================================
+                              MANIFESTO
+            ================================================= */}
+
+            <Route
+              path="/manifesto"
+              element={
+                <PageTransition>
+                  <Manifesto />
+                </PageTransition>
+              }
+            />
+
+            {/* =================================================
+                                EVENTS
+            ================================================= */}
+
+            <Route
+              path="/events"
+              element={
+                <PageTransition>
+                  <Events />
+                </PageTransition>
+              }
+            />
+
+            {/* =================================================
+                                CONNECT
+            ================================================= */}
+
             <Route
               path="/connect"
               element={
@@ -138,6 +223,40 @@ const App = () => {
               }
             />
 
+            {/* =================================================
+                         PROTECTED ADMIN PANEL
+            ================================================= */}
+
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <PageTransition>
+                    <AdminPanel />
+                  </PageTransition>
+                </AdminRoute>
+              }
+            />
+
+            {/* =================================================
+                    UNIFIED CONTENT MANAGEMENT
+            ================================================= */}
+
+            <Route
+              path="/admin/content"
+              element={
+                <AdminRoute>
+                  <PageTransition>
+                    <BulletinManager />
+                  </PageTransition>
+                </AdminRoute>
+              }
+            />
+
+            {/* =================================================
+                              NOT FOUND
+            ================================================= */}
+
             <Route
               path="*"
               element={
@@ -146,6 +265,7 @@ const App = () => {
                 </PageTransition>
               }
             />
+
           </Routes>
         </Suspense>
 

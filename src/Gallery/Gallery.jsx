@@ -36,9 +36,9 @@ const images = [
   },
   {
     id: 6,
-    image: "/images/img6.webp",
-    title: "Community Outreach",
-    desc: "Reaching Out, listening, and creating meaningful change.",
+    image: "/images/img8.webp",
+    title: "Rakshabandhan Celebration",
+    desc: "Honouring the bond of trust and togetherness.",
   },
 ];
 
