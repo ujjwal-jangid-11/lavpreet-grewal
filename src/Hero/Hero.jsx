@@ -36,10 +36,12 @@ function Hero() {
     const preloadTimer = setTimeout(() => {
       setSlides((prev) => {
         const updated = [...prev];
+
         updated[nextSlot] = {
           src: images[nextIndex],
           index: nextIndex,
         };
+
         return updated;
       });
     }, 800);
@@ -123,6 +125,14 @@ function Hero() {
               onClick={() => navigate("/connect")}
             >
               <span>Help & Feedback</span>
+              <strong>↗</strong>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/internship")}
+            >
+              <span>Apply Internship</span>
               <strong>↗</strong>
             </button>
 

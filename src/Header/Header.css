@@ -535,7 +535,7 @@
                         TABLET
 ===================================================== */
 
-@media (max-width: 1250px) {
+@media (max-width: 1350px) {
   .header {
     padding: 0 24px;
   }
@@ -564,7 +564,7 @@
                         MOBILE
 ===================================================== */
 
-@media (max-width: 920px) {
+@media (max-width: 1020px) {
   .header {
     height: 72px;
 

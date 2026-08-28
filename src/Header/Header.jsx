@@ -19,6 +19,7 @@ import {
   FaBullhorn,
   FaFingerprint,
   FaCheck,
+  FaBriefcase,
 } from "react-icons/fa";
 import { supabase } from "../supabase/supabaseClient";
 import AdminLogin from "../AdminLogin/AdminLogin";
@@ -53,6 +54,11 @@ const navLinks = [
     name: "Bulletin",
     path: "/bulletin",
     icon: <FaBullhorn />,
+  },
+  {
+    name: "Apply Internship",
+    path: "/internship",
+    icon: <FaBriefcase />,
   },
 ];
 

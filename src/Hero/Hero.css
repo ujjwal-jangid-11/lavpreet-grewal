@@ -200,7 +200,8 @@
                         CTA
 ===================================================== */
 .hero-actions {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     gap: 14px;
     margin-top: 34px;
@@ -211,8 +212,7 @@
     margin-top: 0;
     height: 64px;
     min-width: 0;
-    flex: 1 1 0;
-    width: 0;
+    width: 100%;
     padding: 0 14px 0 18px;
     display: inline-flex;
     align-items: center;
@@ -259,10 +259,12 @@
 /* =====================================================
                     VALUES
 ===================================================== */
+
 .hero-values {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
-    gap: 14px;
     margin-top: 55px;
     padding-top: 18px;
     border-top: 1px solid var(--border);
@@ -270,6 +272,15 @@
     font-size: .6rem;
     font-weight: 700;
     letter-spacing: 2px;
+}
+
+.hero-values span,
+.hero-values i {
+    justify-self: center;
+}
+
+.hero-values span {
+    white-space: nowrap;
 }
 
 .hero-values i {
@@ -344,15 +355,14 @@
     ================================================= */
     .hero-actions {
         width: 100%;
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: center;
         gap: 14px;
     }
 
     .hero-content button {
-        flex: 1 1 0;
-        width: 0;
+        width: 100%;
         min-width: 0;
     }
 
@@ -402,6 +412,7 @@
     ================================================= */
     .hero-actions {
         width: 100%;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 10px;

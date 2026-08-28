@@ -1,20 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useState, lazy, Suspense, useEffect } from "react";
-
 import ScrollToTop from "./ScrollToTop";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Loader from "./Loader/Loader";
 import PageTransition from "./PageTransition";
 import AdminRoute from "./AdminLogin/AdminRoute";
-
 import "./App.css";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
+
 const About = lazy(() => import("./Pages/About/About"));
+
 const Connect = lazy(() => import("./Pages/Connect/Connect"));
+
 const Manifesto = lazy(() => import("./Pages/Manifesto/Manifesto"));
+
 const Events = lazy(() => import("./Pages/Events/Events"));
+
 const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
 
 const StudyMaterial = lazy(
@@ -49,12 +52,16 @@ const BulletinManager = lazy(
   () => import("./Pages/Admin/BulletinManager")
 );
 
+const InternshipApplications = lazy(
+  () => import("./Pages/Admin/InternshipApplications")
+);
+
 /* =====================================================
-                    PUBLIC INTERNSHIP
+                 PUBLIC INTERNSHIP
 ===================================================== */
 
 const Internship = lazy(
-  () => import("./Pages/Bulletin/Internship/Internship")
+  () => import("./Pages/Internship Form/InternshipForm")
 );
 
 const App = () => {
@@ -176,7 +183,7 @@ const App = () => {
             ================================================= */}
 
             <Route
-              path="/bulletin/internship"
+              path="/internship"
               element={
                 <PageTransition>
                   <Internship />
@@ -248,6 +255,21 @@ const App = () => {
                 <AdminRoute>
                   <PageTransition>
                     <BulletinManager />
+                  </PageTransition>
+                </AdminRoute>
+              }
+            />
+
+            {/* =================================================
+                    INTERNSHIP APPLICATIONS
+            ================================================= */}
+
+            <Route
+              path="/admin/internship-applications"
+              element={
+                <AdminRoute>
+                  <PageTransition>
+                    <InternshipApplications />
                   </PageTransition>
                 </AdminRoute>
               }

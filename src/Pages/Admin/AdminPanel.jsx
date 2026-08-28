@@ -4,6 +4,7 @@ import {
   FaUserShield,
   FaLayerGroup,
   FaArrowRight,
+  FaFileAlt,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../supabase/supabaseClient";
@@ -32,6 +33,7 @@ function AdminPanel() {
 
       if (error) {
         console.error("Failed to get admin user:", error.message);
+
         setUser(null);
         return;
       }
@@ -47,7 +49,7 @@ function AdminPanel() {
   }, []);
 
   /* =====================================================
-                         LOGOUT
+                              LOGOUT
   ===================================================== */
 
   const handleLogout = async () => {
@@ -60,11 +62,11 @@ function AdminPanel() {
 
       /*
         Local logout only.
-
         This signs out the currently active browser session
         without affecting the same admin account on another
         device/browser.
       */
+
       const { error } = await supabase.auth.signOut({
         scope: "local",
       });
@@ -73,23 +75,25 @@ function AdminPanel() {
         console.error("Logout failed:", error.message);
 
         setIsLoggingOut(false);
-
         return;
       }
 
       /*
         Clear our custom one-hour session timestamp.
       */
+
       localStorage.removeItem("adminSessionStartedAt");
 
       /*
         Clear login success message if it still exists.
       */
+
       sessionStorage.removeItem("adminLoginSuccess");
 
       /*
         Clear local user state.
       */
+
       setUser(null);
 
       console.log("Admin logout successful");
@@ -97,6 +101,7 @@ function AdminPanel() {
       /*
         React Router navigation instead of a hard browser reload.
       */
+
       navigate("/", {
         replace: true,
       });
@@ -154,7 +159,7 @@ function AdminPanel() {
           </div>
 
           <span className="admin-panel-account-status">
-            <span className="admin-panel-status-dot"></span>
+            <span className="admin-panel-status-dot" />
             Authenticated
           </span>
         </section>
@@ -169,13 +174,15 @@ function AdminPanel() {
 
             <p>
               Your authentication is working correctly. Choose a section below
-              to manage your website content.
+              to manage your website content and internship applications.
             </p>
           </div>
 
           {/* ================= CONTENT MANAGEMENT ================= */}
 
           <div className="admin-panel-cards">
+            {/* EXISTING CONTENT MANAGEMENT CARD */}
+
             <article className="admin-panel-card">
               <div className="admin-panel-card-icon">
                 <FaLayerGroup />
@@ -197,6 +204,34 @@ function AdminPanel() {
                   onClick={() => navigate("/admin/content")}
                 >
                   <span>Manage Content</span>
+                  <FaArrowRight />
+                </button>
+              </div>
+            </article>
+
+            {/* ================= INTERNSHIP APPLICATIONS ================= */}
+
+            <article className="admin-panel-card">
+              <div className="admin-panel-card-icon">
+                <FaFileAlt />
+              </div>
+
+              <div className="admin-panel-card-body">
+                <span className="admin-panel-card-label">APPLICATIONS</span>
+
+                <h3>Internship Applications</h3>
+
+                <p>
+                  Review submitted internship applications, applicant details,
+                  court preferences and uploaded documents from one place.
+                </p>
+
+                <button
+                  type="button"
+                  className="admin-panel-card-button"
+                  onClick={() => navigate("/admin/internship-applications")}
+                >
+                  <span>View Applications</span>
                   <FaArrowRight />
                 </button>
               </div>
