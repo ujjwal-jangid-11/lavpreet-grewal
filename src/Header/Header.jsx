@@ -347,13 +347,11 @@ function Header({ darkMode, toggleTheme }) {
                     ADMIN LOGIN POPUP
       ================================================= */}
 
-      {!session && (
-        <AdminLogin
-          isOpen={loginOpen}
-          onClose={closeLogin}
-          onLoginSuccess={handleLoginSuccess}
-        />
-      )}
+      <AdminLogin
+        isOpen={loginOpen}
+        onClose={closeLogin}
+        onLoginSuccess={handleLoginSuccess}
+      />
 
       {/* =================================================
                     LOGIN SUCCESS MESSAGE

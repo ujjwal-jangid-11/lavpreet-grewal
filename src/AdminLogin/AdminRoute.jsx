@@ -11,31 +11,62 @@ function AdminRoute({ children }) {
 
   useEffect(() => {
     let mounted = true;
-    let logoutTimer;
+    let logoutTimer = null;
+
+    const clearAdminTimer = () => {
+      if (logoutTimer) {
+        clearTimeout(logoutTimer);
+        logoutTimer = null;
+      }
+    };
 
     const logoutAdmin = async () => {
+      clearAdminTimer();
+
+      localStorage.removeItem(
+        "adminSessionStartedAt"
+      );
+
       await supabase.auth.signOut();
 
       if (mounted) {
         setSession(null);
       }
+
+      window.location.replace("/");
     };
 
     const startSessionTimer = (currentSession) => {
-      if (logoutTimer) {
-        clearTimeout(logoutTimer);
-      }
+      clearAdminTimer();
 
       if (!currentSession) {
         return;
       }
 
-      const loginTime = currentSession.user?.last_sign_in_at
-        ? new Date(currentSession.user.last_sign_in_at).getTime()
-        : Date.now();
+      /*
+        The timestamp is created when the user successfully
+        logs in. It is NOT based on Supabase's
+        last_sign_in_at value.
+      */
+      let sessionStartedAt =
+        localStorage.getItem(
+          "adminSessionStartedAt"
+        );
 
-      const elapsedTime = Date.now() - loginTime;
-      const remainingTime = ADMIN_SESSION_DURATION - elapsedTime;
+      if (!sessionStartedAt) {
+        sessionStartedAt = String(Date.now());
+
+        localStorage.setItem(
+          "adminSessionStartedAt",
+          sessionStartedAt
+        );
+      }
+
+      const elapsedTime =
+        Date.now() - Number(sessionStartedAt);
+
+      const remainingTime =
+        ADMIN_SESSION_DURATION - elapsedTime;
 
       if (remainingTime <= 0) {
         logoutAdmin();
@@ -47,45 +78,89 @@ function AdminRoute({ children }) {
       }, remainingTime);
     };
 
-    const getSession = async () => {
-      const {
-        data: { session: currentSession },
-      } = await supabase.auth.getSession();
+    const initialize = async () => {
+      try {
+        const {
+          data: { session: currentSession },
+          error,
+        } = await supabase.auth.getSession();
 
-      if (!mounted) return;
+        if (!mounted) return;
 
-      setSession(currentSession);
-      setLoading(false);
+        if (error) {
+          console.error(
+            "Admin session check failed:",
+            error.message
+          );
 
-      if (currentSession) {
-        startSessionTimer(currentSession);
+          setSession(null);
+          setLoading(false);
+          return;
+        }
+
+        setSession(currentSession);
+        setLoading(false);
+
+        if (currentSession) {
+          startSessionTimer(currentSession);
+        } else {
+          localStorage.removeItem(
+            "adminSessionStartedAt"
+          );
+        }
+      } catch (error) {
+        console.error(
+          "Admin session initialization failed:",
+          error
+        );
+
+        if (mounted) {
+          setSession(null);
+          setLoading(false);
+        }
       }
     };
 
-    getSession();
+    initialize();
 
+    /*
+      IMPORTANT:
+      Do NOT call getSession(), signOut(), etc. inside
+      this auth-state callback.
+
+      Supabase itself provides the new session here.
+    */
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, currentSession) => {
-      if (!mounted) return;
+    } = supabase.auth.onAuthStateChange(
+      (event, currentSession) => {
+        if (!mounted) return;
 
-      setSession(currentSession);
+        if (event === "SIGNED_OUT") {
+          clearAdminTimer();
 
-      if (currentSession) {
-        startSessionTimer(currentSession);
-      } else {
-        if (logoutTimer) {
-          clearTimeout(logoutTimer);
+          localStorage.removeItem(
+            "adminSessionStartedAt"
+          );
+
+          setSession(null);
+          return;
+        }
+
+        if (currentSession) {
+          setSession(currentSession);
+          startSessionTimer(currentSession);
+        } else {
+          clearAdminTimer();
+          setSession(null);
         }
       }
-    });
+    );
 
     return () => {
       mounted = false;
 
-      if (logoutTimer) {
-        clearTimeout(logoutTimer);
-      }
+      clearAdminTimer();
 
       subscription.unsubscribe();
     };

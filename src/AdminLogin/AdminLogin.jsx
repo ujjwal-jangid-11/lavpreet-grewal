@@ -10,16 +10,16 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabase/supabaseClient";
 import "./AdminLogin.css";
 
-function AdminLogin({ isOpen, onClose }) {
+function AdminLogin({ isOpen, onClose, onLoginSuccess }) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const modalRef = useRef(null);
   const messageTimerRef = useRef(null);
-  const logoutTimerRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -38,6 +38,7 @@ function AdminLogin({ isOpen, onClose }) {
     messageTimerRef.current = setTimeout(() => {
       setMessage("");
       setMessageType("");
+      messageTimerRef.current = null;
     }, duration);
   };
 
@@ -94,127 +95,10 @@ function AdminLogin({ isOpen, onClose }) {
   ===================================================== */
 
   const handleOverlayClick = (event) => {
-    if (
-      modalRef.current &&
-      !modalRef.current.contains(event.target)
-    ) {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
       onClose();
     }
   };
-
-  /* =====================================================
-                    ONE HOUR AUTO LOGOUT
-  ===================================================== */
-
-  useEffect(() => {
-    const SESSION_DURATION = 60 * 60 * 1000;
-
-    const setupAutoLogout = async () => {
-      if (logoutTimerRef.current) {
-        clearTimeout(logoutTimerRef.current);
-        logoutTimerRef.current = null;
-      }
-
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (!session) {
-        localStorage.removeItem("adminSessionStartedAt");
-        return;
-      }
-
-      const storedStartTime = localStorage.getItem(
-        "adminSessionStartedAt"
-      );
-
-      if (!storedStartTime) {
-        const now = Date.now();
-
-        localStorage.setItem(
-          "adminSessionStartedAt",
-          String(now)
-        );
-
-        logoutTimerRef.current = setTimeout(async () => {
-          await supabase.auth.signOut();
-
-          localStorage.removeItem(
-            "adminSessionStartedAt"
-          );
-
-          window.location.replace("/");
-        }, SESSION_DURATION);
-
-        return;
-      }
-
-      const elapsed =
-        Date.now() - Number(storedStartTime);
-
-      const remaining =
-        SESSION_DURATION - elapsed;
-
-      if (remaining <= 0) {
-        await supabase.auth.signOut();
-
-        localStorage.removeItem(
-          "adminSessionStartedAt"
-        );
-
-        window.location.replace("/");
-
-        return;
-      }
-
-      logoutTimerRef.current = setTimeout(async () => {
-        await supabase.auth.signOut();
-
-        localStorage.removeItem(
-          "adminSessionStartedAt"
-        );
-
-        window.location.replace("/");
-      }, remaining);
-    };
-
-    setupAutoLogout();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (event === "SIGNED_IN" && session) {
-          localStorage.setItem(
-            "adminSessionStartedAt",
-            String(Date.now())
-          );
-
-          setupAutoLogout();
-        }
-
-        if (event === "SIGNED_OUT") {
-          if (logoutTimerRef.current) {
-            clearTimeout(logoutTimerRef.current);
-            logoutTimerRef.current = null;
-          }
-
-          localStorage.removeItem(
-            "adminSessionStartedAt"
-          );
-        }
-      }
-    );
-
-    return () => {
-      subscription.unsubscribe();
-
-      if (logoutTimerRef.current) {
-        clearTimeout(logoutTimerRef.current);
-        logoutTimerRef.current = null;
-      }
-    };
-  }, []);
 
   /* =====================================================
                           LOGIN
@@ -223,70 +107,72 @@ function AdminLogin({ isOpen, onClose }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (isSubmitting) return;
+
     if (messageTimerRef.current) {
       clearTimeout(messageTimerRef.current);
+      messageTimerRef.current = null;
     }
 
     setMessage("");
     setMessageType("");
+    setIsSubmitting(true);
 
-    const { data, error } =
-      await supabase.auth.signInWithPassword({
-        email,
+    const cleanEmail = email.trim();
+
+    try {
+      /*
+        IMPORTANT:
+        This component performs ONLY the login request.
+
+        Session monitoring and one-hour expiry are handled
+        by AdminRoute. This prevents nested Supabase auth
+        operations and auth-state race conditions.
+      */
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: cleanEmail,
         password,
       });
 
-    /* ===================================================
-                        LOGIN ERROR
-    =================================================== */
+      if (error) {
+        console.error("Admin login failed:", error.message);
 
-    if (error) {
-      console.error(
-        "Admin login failed:",
-        error.message
+        showMessage("error", error.message, 3000);
+
+        return;
+      }
+
+      console.log("Admin login successful:", data?.user?.email);
+
+      /*
+        Store the application-level one-hour session start.
+        AdminRoute will use this value for the expiry timer.
+      */
+      localStorage.setItem("adminSessionStartedAt", String(Date.now()));
+
+      /*
+        Store success message for AdminPanel.
+      */
+      sessionStorage.setItem(
+        "adminLoginSuccess",
+        "Admin access granted. Welcome back.",
       );
 
-      showMessage(
-        "error",
-        error.message,
-        3000
-      );
+      /*
+        Notify Header, if the callback exists.
+        (Navigation and modal close are handled by the parent component now)
+      */
+      if (typeof onLoginSuccess === "function") {
+        onLoginSuccess(data?.session);
+      }
+    } catch (error) {
+      console.error("Unexpected admin login error:", error);
 
-      return;
+      showMessage("error", "Unable to sign in. Please try again.", 3000);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    /* ===================================================
-                      LOGIN SUCCESS
-    =================================================== */
-
-    console.log(
-      "Admin login successful",
-      data
-    );
-
-    /*
-      Start the one-hour admin session.
-    */
-    localStorage.setItem(
-      "adminSessionStartedAt",
-      String(Date.now())
-    );
-
-    /*
-      Store success message for Admin Panel.
-      AdminLogin may unmount immediately after navigation,
-      so the message is intentionally stored here.
-    */
-    sessionStorage.setItem(
-      "adminLoginSuccess",
-      "Admin access granted. Welcome back."
-    );
-
-    /*
-      Close login modal and immediately navigate.
-    */
-    onClose();
-    navigate("/admin");
   };
 
   /* =====================================================
@@ -299,6 +185,7 @@ function AdminLogin({ isOpen, onClose }) {
       setShowPassword(false);
       setMessage("");
       setMessageType("");
+      setIsSubmitting(false);
 
       if (messageTimerRef.current) {
         clearTimeout(messageTimerRef.current);
@@ -327,9 +214,7 @@ function AdminLogin({ isOpen, onClose }) {
         <div
           ref={modalRef}
           className="admin-login-modal"
-          onMouseDown={(event) =>
-            event.stopPropagation()
-          }
+          onMouseDown={(event) => event.stopPropagation()}
         >
           {/* =================================================
                                 CLOSE
@@ -354,17 +239,11 @@ function AdminLogin({ isOpen, onClose }) {
             </div>
 
             <div className="admin-login-heading">
-              <span className="admin-login-eyebrow">
-                LAW FACULTY HUB
-              </span>
+              <span className="admin-login-eyebrow">LAW FACULTY HUB</span>
 
-              <h2 id="admin-login-title">
-                Admin Login
-              </h2>
+              <h2 id="admin-login-title">Admin Login</h2>
 
-              <p>
-                Sign in to access the administration panel.
-              </p>
+              <p>Sign in to access the administration panel.</p>
             </div>
           </div>
 
@@ -372,73 +251,49 @@ function AdminLogin({ isOpen, onClose }) {
                                 FORM
           ================================================= */}
 
-          <form
-            className="admin-login-form"
-            onSubmit={handleSubmit}
-          >
+          <form className="admin-login-form" onSubmit={handleSubmit}>
             {/* ================= EMAIL ================= */}
 
             <div className="admin-login-field">
-              <label htmlFor="admin-email">
-                Email Address
-              </label>
+              <label htmlFor="admin-email">Email Address</label>
 
               <input
                 id="admin-email"
                 type="email"
                 value={email}
-                onChange={(event) =>
-                  setEmail(event.target.value)
-                }
+                onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter your email"
                 autoComplete="email"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
             {/* ================= PASSWORD ================= */}
 
             <div className="admin-login-field">
-              <label htmlFor="admin-password">
-                Password
-              </label>
+              <label htmlFor="admin-password">Password</label>
 
               <div className="admin-password-wrapper">
                 <input
                   id="admin-password"
-                  type={
-                    showPassword
-                      ? "text"
-                      : "password"
-                  }
+                  type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(event) =>
-                    setPassword(event.target.value)
-                  }
+                  onChange={(event) => setPassword(event.target.value)}
                   placeholder="Enter your password"
                   autoComplete="current-password"
                   required
+                  disabled={isSubmitting}
                 />
 
                 <button
                   type="button"
                   className="admin-password-toggle"
-                  onClick={() =>
-                    setShowPassword(
-                      (current) => !current
-                    )
-                  }
-                  aria-label={
-                    showPassword
-                      ? "Hide password"
-                      : "Show password"
-                  }
+                  onClick={() => setShowPassword((current) => !current)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  disabled={isSubmitting}
                 >
-                  {showPassword ? (
-                    <FaEyeSlash />
-                  ) : (
-                    <FaEye />
-                  )}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
             </div>
@@ -450,8 +305,9 @@ function AdminLogin({ isOpen, onClose }) {
             <button
               type="submit"
               className="admin-login-submit"
+              disabled={isSubmitting}
             >
-              <span>Sign In</span>
+              <span>{isSubmitting ? "Signing In..." : "Sign In"}</span>
 
               <strong>
                 <FaArrowRight />
@@ -464,9 +320,7 @@ function AdminLogin({ isOpen, onClose }) {
           ================================================= */}
 
           <div className="admin-login-footer">
-            <span>
-              Authorized administrators only
-            </span>
+            <span>Authorized administrators only</span>
           </div>
 
           {/* =================================================
