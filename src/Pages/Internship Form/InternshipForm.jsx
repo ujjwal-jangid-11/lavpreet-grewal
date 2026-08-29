@@ -43,7 +43,7 @@ const SEMESTERS = [
 const INTERNSHIP_YEARS = ["2026", "2027"];
 
 const INTERNSHIP_MONTHS = {
-  2026: ["September", "October", "November", "December"],
+  2026: ["October", "November", "December"],
   2027: ["January", "February", "March", "April", "May", "July", "August"],
 };
 
@@ -965,7 +965,7 @@ function InternshipForm() {
 
               <p>
                 <strong>Month preference:</strong> For 2026, internship
-                preferences are available from September to December. For 2027,
+                preferences are available from October to December. For 2027,
                 internship preferences are available from January to May and
                 July to August.
               </p>

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import * as XLSX from "xlsx";
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -628,104 +629,61 @@ function InternshipApplications() {
      EXCEL EXPORT
   ========================================================= */
 
-  const escapeExcelHtml = (value) => {
-    if (value === null || value === undefined) {
-      return "";
-    }
-
-    return String(value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  };
-
   const handleExportExcel = () => {
     if (filteredApplications.length === 0) {
       setError("There are no applications available to export.");
       return;
     }
 
-    const rows = filteredApplications
-      .map(
-        (application) => `
-          <tr>
-            <td>${escapeExcelHtml(application.name)}</td>
-            <td>${escapeExcelHtml(application.current_year)}</td>
-            <td>${escapeExcelHtml(application.semester)}</td>
-            <td>${escapeExcelHtml(application.section)}</td>
-            <td>${escapeExcelHtml(application.class_roll_number)}</td>
-            <td>${escapeExcelHtml(application.local_address)}</td>
-            <td>${escapeExcelHtml(application.contact_number)}</td>
-            <td>${escapeExcelHtml(application.email)}</td>
-            <td>${escapeExcelHtml(application.court_preference)}</td>
-            <td>${escapeExcelHtml(application.internship_year)}</td>
-            <td>${escapeExcelHtml(application.internship_month)}</td>
-            <td>${escapeExcelHtml(application.status)}</td>
-            <td>${escapeExcelHtml(application.cv_original_name)}</td>
-            <td>${escapeExcelHtml(
-              application.id_card_receipt_original_name,
-            )}</td>
-            <td>${escapeExcelHtml(formatDateTime(application.created_at))}</td>
-          </tr>
-        `,
-      )
-      .join("");
+    const exportData = filteredApplications.map((application) => ({
+      "Full Name": application.name || "",
+      "Current Year": application.current_year || "",
+      Semester: application.semester || "",
+      Section: application.section || "",
+      "Class Roll Number": application.class_roll_number || "",
+      "Local Address": application.local_address || "",
+      "Contact Number": application.contact_number || "",
+      Email: application.email || "",
+      "Court Preference": application.court_preference || "",
+      "Internship Year": application.internship_year || "",
+      "Internship Month": application.internship_month || "",
+      Status: application.status || "Pending",
+      "CV File": application.cv_original_name || "",
+      "ID / Fee Receipt File": application.id_card_receipt_original_name || "",
+      "Submitted At": formatDateTime(application.created_at),
+    }));
 
-    const table = `
-      <html xmlns:o="urn:schemas-microsoft-com:office:office"
-            xmlns:x="urn:schemas-microsoft-com:office:excel"
-            xmlns="http://www.w3.org/TR/REC-html40">
-        <head>
-          <meta charset="UTF-8" />
-          <!--[if gte mso 9]>
-          <xml>
-            <x:ExcelWorkbook>
-              <x:ExcelWorksheets>
-                <x:ExcelWorksheet>
-                  <x:Name>Applications</x:Name>
-                  <x:WorksheetOptions>
-                    <x:DisplayGridlines/>
-                  </x:WorksheetOptions>
-                </x:ExcelWorksheet>
-              </x:ExcelWorksheets>
-            </x:ExcelWorkbook>
-          </xml>
-          <![endif]-->
-        </head>
+    const worksheet = XLSX.utils.json_to_sheet(exportData);
 
-        <body>
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Full Name</th>
-                <th>Current Year</th>
-                <th>Semester</th>
-                <th>Section</th>
-                <th>Class Roll Number</th>
-                <th>Local Address</th>
-                <th>Contact Number</th>
-                <th>Email</th>
-                <th>Court Preference</th>
-                <th>Internship Year</th>
-                <th>Internship Month</th>
-                <th>Status</th>
-                <th>CV File</th>
-                <th>ID / Fee Receipt File</th>
-                <th>Submitted At</th>
-              </tr>
-            </thead>
+    worksheet["!cols"] = [
+      { wch: 24 },
+      { wch: 16 },
+      { wch: 14 },
+      { wch: 12 },
+      { wch: 20 },
+      { wch: 40 },
+      { wch: 20 },
+      { wch: 32 },
+      { wch: 20 },
+      { wch: 16 },
+      { wch: 20 },
+      { wch: 16 },
+      { wch: 35 },
+      { wch: 35 },
+      { wch: 24 },
+    ];
 
-            <tbody>
-              ${rows}
-            </tbody>
-          </table>
-        </body>
-      </html>
-    `;
+    const workbook = XLSX.utils.book_new();
 
-    const blob = new Blob([`\ufeff${table}`], {
-      type: "application/vnd.ms-excel;charset=utf-8;",
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Applications");
+
+    const excelData = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+
+    const blob = new Blob([excelData], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     });
 
     const url = URL.createObjectURL(blob);
@@ -736,7 +694,7 @@ function InternshipApplications() {
 
     const date = new Date().toISOString().slice(0, 10);
 
-    link.download = `internship-applications-${date}.xls`;
+    link.download = `internship-applications-${date}.xlsx`;
 
     document.body.appendChild(link);
     link.click();
