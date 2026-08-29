@@ -93,6 +93,8 @@ function InternshipApplications() {
             contact_number,
             email,
             court_preference,
+            internship_year,
+            internship_month,
             cv_path,
             cv_original_name,
             id_card_receipt_path,
@@ -657,6 +659,8 @@ function InternshipApplications() {
             <td>${escapeExcelHtml(application.contact_number)}</td>
             <td>${escapeExcelHtml(application.email)}</td>
             <td>${escapeExcelHtml(application.court_preference)}</td>
+            <td>${escapeExcelHtml(application.internship_year)}</td>
+            <td>${escapeExcelHtml(application.internship_month)}</td>
             <td>${escapeExcelHtml(application.status)}</td>
             <td>${escapeExcelHtml(application.cv_original_name)}</td>
             <td>${escapeExcelHtml(
@@ -703,6 +707,8 @@ function InternshipApplications() {
                 <th>Contact Number</th>
                 <th>Email</th>
                 <th>Court Preference</th>
+                <th>Internship Year</th>
+                <th>Internship Month</th>
                 <th>Status</th>
                 <th>CV File</th>
                 <th>ID / Fee Receipt File</th>
@@ -1386,7 +1392,7 @@ function InternshipApplications() {
                           </div>
 
                           <div className="internship-application-detail-grid">
-                            <div className="internship-application-detail-item internship-application-detail-item-full">
+                            <div className="internship-application-detail-item">
                               <span className="internship-application-detail-item-label">
                                 Preferred Placement Court
                               </span>
@@ -1395,6 +1401,26 @@ function InternshipApplications() {
                                 <strong>
                                   {application.court_preference || "—"}
                                 </strong>
+                              </span>
+                            </div>
+
+                            <div className="internship-application-detail-item">
+                              <span className="internship-application-detail-item-label">
+                                Preferred Internship Year
+                              </span>
+
+                              <span className="internship-application-detail-item-value">
+                                {application.internship_year || "—"}
+                              </span>
+                            </div>
+
+                            <div className="internship-application-detail-item">
+                              <span className="internship-application-detail-item-label">
+                                Preferred Internship Month
+                              </span>
+
+                              <span className="internship-application-detail-item-value">
+                                {application.internship_month || "—"}
                               </span>
                             </div>
                           </div>
