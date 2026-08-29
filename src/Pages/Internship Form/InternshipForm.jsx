@@ -44,16 +44,7 @@ const INTERNSHIP_YEARS = ["2026", "2027"];
 
 const INTERNSHIP_MONTHS = {
   2026: ["September", "October", "November", "December"],
-  2027: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-  ],
+  2027: ["January", "February", "March", "April", "May", "July", "August"],
 };
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -314,9 +305,7 @@ function InternshipForm() {
       console.error(`Supabase storage upload error for ${type}:`, error);
 
       throw new Error(
-        `Unable to upload ${
-          type === "cv" ? "CV" : "ID card / fee receipt"
-        }.`,
+        `Unable to upload ${type === "cv" ? "CV" : "ID card / fee receipt"}.`,
       );
     }
 
@@ -404,9 +393,7 @@ function InternshipForm() {
         console.error("Supabase database insert error:", insertError);
 
         if (uploadedCvPath) {
-          await supabase.storage
-            .from(STORAGE_BUCKET)
-            .remove([uploadedCvPath]);
+          await supabase.storage.from(STORAGE_BUCKET).remove([uploadedCvPath]);
         }
 
         if (uploadedIdCardPath) {
@@ -979,7 +966,8 @@ function InternshipForm() {
               <p>
                 <strong>Month preference:</strong> For 2026, internship
                 preferences are available from September to December. For 2027,
-                preferences are available from January to August.
+                internship preferences are available from January to May and
+                July to August.
               </p>
             </div>
           </section>
