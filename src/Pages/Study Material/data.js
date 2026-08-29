@@ -24,11 +24,6 @@ const studyMaterial = [
             },
             {
               id: 3,
-              title: "BNS / IPC Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/BNS-case-summary.pdf",
-            },
-            {
-              id: 4,
               title: "BNS / IPC PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/1st%20sem%20pyqs%20analysis_cropped-4.pdf",
             },
@@ -84,21 +79,11 @@ const studyMaterial = [
             },
             {
               id: 2,
-              title: "Contract Law Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/case%20summaries/Contract-case-summary.pdf",
-            },
-            {
-              id: 3,
-              title: "Rahul IAS Contract Law Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/notes%20sem%201/Rahul's-Contract-law.pdf",
-            },
-            {
-              id: 4,
               title: "RK Bangia Contract Law",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/Dukki/RK-Bangia-Contract-Law.pdf",
             },
             {
-              id: 5,
+              id: 3,
               title: "Contract Law PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/1st%20sem%20pyqs%20analysis_cropped-1.pdf",
             },
@@ -149,16 +134,6 @@ const studyMaterial = [
           notes: [
             {
               id: 1,
-              title: "Rahul IAS Family Law Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/notes%20sem%201/Rahul's-family-law1.pdf",
-            },
-            {
-              id: 2,
-              title: "Family Law Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/case%20summaries/Family-law1-case-summary.pdf",
-            },
-            {
-              id: 3,
               title: "Family Law 1 PYQs Summary",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/1st%20sem%20pyqs%20analysis_cropped-5.pdf",
             },
@@ -229,11 +204,6 @@ const studyMaterial = [
             },
             {
               id: 2,
-              title: "Rahul IAS Jurisprudence Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/notes%20sem%201/Rahul's-Jurisprudence.pdf",
-            },
-            {
-              id: 3,
               title: "Jurisprudence-1 PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/1st%20sem%20pyqs%20analysis_cropped-2.pdf",
             },
@@ -283,16 +253,6 @@ const studyMaterial = [
             },
             {
               id: 2,
-              title: "Law of Torts Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/case%20summaries/Torts-case-summary.pdf",
-            },
-            {
-              id: 3,
-              title: "Rahul IAS Torts Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/notes%20sem%201/Rahul's-Tort.pdf",
-            },
-            {
-              id: 4,
               title: "Torts PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/1st%20sem%20spare%20material/1st%20sem%20pyqs%20analysis_cropped-3.pdf",
             },
@@ -354,16 +314,6 @@ const studyMaterial = [
             },
             {
               id: 3,
-              title: "Company Law : Version 3",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/company%20law%20case%20notes%20-%20Rahul-2.pdf",
-            },
-            {
-              id: 4,
-              title: "Company Law Asim's Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/Company%20ASIM.pdf",
-            },
-            {
-              id: 5,
               title: "Company Law PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/3rd-sem-pyqs-analysis-3.pdf",
             },
@@ -410,16 +360,6 @@ const studyMaterial = [
 
         resources: {
           notes: [
-            {
-              id: 1,
-              title: "Constitutional Law-1 Asim's Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/constitution%20ASIM.pdf",
-            },
-            {
-              id: 2,
-              title: "Constitutional Law-1 Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/Constitutional%20law%201%20case%20notes-%20Rahul-2.pdf",
-            },
             {
               id: 3,
               title: "Constitutional Law-1 PYQs Analysis",
@@ -469,16 +409,6 @@ const studyMaterial = [
           notes: [
             {
               id: 1,
-              title: "CPC & Limitation Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/CPC%20&%20Limitation%20case%20notes%20-%20Rahul.pdf",
-            },
-            {
-              id: 2,
-              title: "Limitation Act Asim's Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/limitation%20ASIM.pdf",
-            },
-            {
-              id: 3,
               title: "CPC & Limitation PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/3rd-sem-pyqs-analysis-1.pdf",
             },
@@ -570,11 +500,6 @@ const studyMaterial = [
             },
             {
               id: 2,
-              title: "Special Contracts Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/Special%20Contract%20case%20notes%20-%20Rahul-2.pdf",
-            },
-            {
-              id: 3,
               title: "Special Contracts PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/3rd-sem-pyqs-analysis-4.pdf",
             },
@@ -633,11 +558,6 @@ const studyMaterial = [
               id: 1,
               title: "White Collar Crimes Notes",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/notes%20sem%203/WCC%20FINAL%202025%20Murari.pdf",
-            },
-            {
-              id: 2,
-              title: "White Collar Crimes Murari Sir's Notes",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/3rd%20sem%20spare%20material/WCC-Murari-sir-notes.pdf",
             },
           ],
 
@@ -787,11 +707,6 @@ const studyMaterial = [
           notes: [
             {
               id: 1,
-              title: "Industrial Law Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/Industrial-law-case-summary.pdf",
-            },
-            {
-              id: 2,
               title: "Industrial Law PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/industrial%20-law-pyqs-analysis.pdf",
             },
@@ -847,11 +762,6 @@ const studyMaterial = [
           notes: [
             {
               id: 1,
-              title: "IPR II Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/IPR2-case-summary.pdf",
-            },
-            {
-              id: 2,
               title: "IPR II PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/ipr2.pdf",
             },
@@ -910,11 +820,6 @@ const studyMaterial = [
               title: "IT Law Cases Summary",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/IT-law-case-summary.pdf",
             },
-            {
-              id: 2,
-              title: "IT Law PYQs Analysis",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/itlaw.pdf",
-            },
           ],
 
           bareacts: [
@@ -961,11 +866,6 @@ const studyMaterial = [
           notes: [
             {
               id: 1,
-              title: "Taxation Law Cases Summary",
-              file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/case%20summaries/Taxation-case-summary.pdf",
-            },
-            {
-              id: 2,
               title: "Taxation Law PYQs Analysis",
               file: "https://nheykzzachkznfsqsxmc.supabase.co/storage/v1/object/public/study-material/5th%20sem%20spare%20material/tax-law.pdf",
             },
